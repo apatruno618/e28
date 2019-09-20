@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width" , initial-scale=1.0>
+    <title>Rock, paper, scissors</title>
+    <script src='script.js' defer></script>
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <div>
+        <select id='userShape' autofocus>
+            <option value="rock">rock</option>
+            <option value="paper">paper</option>
+            <option value="scissors">scissors</option>
+        </select>
+    </div>
+    <div>
+        <button id='submitButton' type="button">Submit!</button>
+    </div>
+
+    <div id='results'>
+        The computer chose <span id='resultsMessage'></span>!
+        <div id='tieMessage' class='message'>It's a tie!</div>
+        <div id='winMessage' class='message'>You won!</div>
+        <div id='loseMessage' class='message'>You lost, boo.</div>
+    </div>
+
+</body>
+
+</html>

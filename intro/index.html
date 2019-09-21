@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <title>Intro</title>
+    <meta charset="utf-8">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src='script.js' defer></script>
+
+    <style>
+        /* in css, to target element by its attribute or type use square bracket notation */
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Intro</h1>
+    <!-- where vue instance binds to and manipulates DOM -->
+    <!-- when js is done loading, it will remove v-cloak -->
+    <div id='app' v-cloak>
+        <!-- div for name -->
+        <div>
+            <!-- good input should have a label -->
+            <!-- bind input to our playName data property, use model directive -->
+            <!-- a directive is a custom attribute -->
+            <!-- model creates a 2 way binding between form widget and data-->
+            <label>What's your name? <input type='text' v-model='playerName'></label>
+            <!-- if playerName is not null then it will show -->
+            <p v-if='playerName !=null'>Player: {{ playerName }}</p>
+        </div>
+
+        <!-- div for guesses -->
+
+        <div>
+            <label>What's your guess? <input type='text' v-model='guess'></label>
+            <!-- pass v on directive a java script expression -->
+            <button v-on:click='guesses.push(guess)'>Guess</button>
+            <ul>
+                <li v-for='thisGuess in guesses'>{{ thisGuess }}</li>
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

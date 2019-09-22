@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <title>P1</title>
+    <meta charset="utf-8">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src='script.js' defer></script>
+
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        body {
+            text-align: center;
+            margin: auto;
+            border: 3px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>P1</h1>
+    <div id='app' v-cloak>
+        <!-- div for player shape -->
+        <div>
+            <!-- two way binding of playerChoice to vue instance -->
+            <select v-model='playerChoice' autofocus>
+                <!-- replace options with items in shapes array? -->
+
+                <option v-for='shape in shapes'>{{ shape }}</option>
+
+                <!-- <option value="rock">rock</option>
+                <option value="paper">paper</option>
+                <option value="scissors">scissors</option> -->
+            </select>
+            <p v-if='playerChoice != null'>Player's choice: {{ playerChoice }}</p>
+
+        </div>
+        <button v-on:click='pickShape'>Rock, paper, scissors says...</button>
+        <p v-if='computerChoice != null'>Computer's choice: {{ computerChoice }}</p>
+        <!-- div for computer shape -->
+        <div>
+
+        </div>
+    </div>
+</body>
+
+</html>

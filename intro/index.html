@@ -26,9 +26,9 @@
         <!-- div for name -->
         <div>
             <!-- good input should have a label -->
-            <!-- bind input to our playName data property, use model directive -->
+            <!-- bind input to our playerName data property, use model directive -->
             <!-- a directive is a custom attribute -->
-            <!-- model creates a 2 way binding between form widget and data-->
+            <!-- v-model creates a 2 way binding between form widget and data-->
             <label>What's your name? <input type='text' v-model='playerName'></label>
             <!-- if playerName is not null then it will show -->
             <p v-if='playerName !=null'>Player: {{ playerName }}</p>

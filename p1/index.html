@@ -29,22 +29,30 @@
             <!-- two way binding of playerChoice to vue instance -->
             <select v-model='playerChoice' autofocus>
                 <!-- replace options with items in shapes array? -->
-
                 <option v-for='shape in shapes'>{{ shape }}</option>
-
                 <!-- <option value="rock">rock</option>
                 <option value="paper">paper</option>
                 <option value="scissors">scissors</option> -->
             </select>
-            <p v-if='playerChoice != null'>Player's choice: {{ playerChoice }}</p>
-
+            <!-- only displays if playerChoice is not null, evaluates as false when null -->
+            <p v-if='playerChoice'>Player's choice: {{ playerChoice }}</p>
+            <p v-else>Pick a shape to begin</p>
         </div>
-        <button v-on:click='pickShape'>Rock, paper, scissors says...</button>
-        <p v-if='computerChoice != null'>Computer's choice: {{ computerChoice }}</p>
-        <!-- div for computer shape -->
-        <div>
 
+        <!-- rendered on load but inline style of display:none until playerChoice is true -->
+        <div v-show='playerChoice'>
+            <button @click='pickShape'>Rock, paper, scissors says...</button>
+            <!-- only displays if computerChoice is not null, evaluates as false when null -->
+            <p v-if='computerChoice'>Computer's choice: {{ computerChoice }}</p>
+            <!-- div for computer shape -->
         </div>
+
+        <!-- using template html element since this doesn't need to rendered immediately on page load -->
+        <template v-if='result'>
+            <p v-if='result == "tie"'>It's a tie!</p>
+            <p v-else-if='result == "win"'>You win!</p>
+            <p v-else>You lost, boo!</p>
+        </template>
     </div>
 </body>
 

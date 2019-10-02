@@ -1,9 +1,10 @@
-// initializes vue instance
+// initializes Vue instance
 let app = new Vue({
     el: '#app',
     data: {
         'playerChoice': null,
         'shapes': ['rock', 'paper', 'scissors'],
+        'result': null,
         'computerChoice': null,
     },
     methods: {

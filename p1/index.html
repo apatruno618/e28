@@ -18,11 +18,15 @@
             margin: auto;
             border: 3px solid blue;
         }
+
+        .error {
+            color: red;
+        }
     </style>
 </head>
 
 <body>
-    <h1>P1</h1>
+    <h1>Rock, Paper, Scissors</h1>
     <div id='app' v-cloak>
         <!-- div for player shape -->
         <div>
@@ -41,18 +45,23 @@
 
         <!-- rendered on load but inline style of display:none until playerChoice is true -->
         <div v-show='playerChoice'>
-            <button @click='pickShape'>Rock, paper, scissors says...</button>
+            <button @click='pickShape' @keyup.enter='pickShape'>Rock, paper, scissors says...</button>
             <!-- only displays if computerChoice is not null, evaluates as false when null -->
             <p v-if='computerChoice'>Computer's choice: {{ computerChoice }}</p>
             <!-- div for computer shape -->
         </div>
 
+        <!-- bind css class dynamically -->
+        <img v-if='submitted' :src='"images/" + imageSrc' :alt='imageAlt'>
+        <div v-bind:class='{ error : !win }'>{{ feedback }}</div>
+
         <!-- using template html element since this doesn't need to rendered immediately on page load -->
         <template v-if='result'>
-            <p v-if='result == "tie"'>It's a tie!</p>
-            <p v-else-if='result == "win"'>You win!</p>
+            <p v-if='tie'>It's a tie!</p>
+            <p v-else-if='playerWin'>You win!</p>
             <p v-else>You lost, boo!</p>
         </template>
+
     </div>
 </body>
 

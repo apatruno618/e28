@@ -19,8 +19,9 @@
             border: 3px solid blue;
         }
 
-        .error {
+        .lost {
             color: red;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -32,11 +33,8 @@
         <div>
             <!-- two way binding of playerChoice to vue instance -->
             <select v-model='playerChoice' autofocus>
-                <!-- replace options with items in shapes array? -->
+                <!-- loops through options in shapes array -->
                 <option v-for='shape in shapes'>{{ shape }}</option>
-                <!-- <option value="rock">rock</option>
-                <option value="paper">paper</option>
-                <option value="scissors">scissors</option> -->
             </select>
             <!-- only displays if playerChoice is not null, evaluates as false when null -->
             <p v-if='playerChoice'>Player's choice: {{ playerChoice }}</p>
@@ -48,20 +46,23 @@
             <button @click='pickShape' @keyup.enter='pickShape'>Rock, paper, scissors says...</button>
             <!-- only displays if computerChoice is not null, evaluates as false when null -->
             <p v-if='computerChoice'>Computer's choice: {{ computerChoice }}</p>
-            <!-- div for computer shape -->
         </div>
 
-        <!-- bind css class dynamically -->
+        <!-- binds css class dynamically -->
         <img v-if='submitted' :src='"images/" + imageSrc' :alt='imageAlt'>
-        <div v-bind:class='{ error : !win }'>{{ feedback }}</div>
 
         <!-- using template html element since this doesn't need to rendered immediately on page load -->
         <template v-if='result'>
             <p v-if='tie'>It's a tie!</p>
             <p v-else-if='playerWin'>You win!</p>
-            <p v-else>You lost, boo!</p>
-        </template>
+            <!-- <p v-else>You lost, boo!</p> -->
+            <div v-else :class="{ lost : computerWin }">{{ losingFeedback }}</div>
+            <!-- <div v-else :class='{ lost : computerWin }'></div> -->
+            <div>
+                <button @click='retry' @keyup.enter='retry'>Click here to try again</button>
+            </div>
 
+        </template>
     </div>
 </body>
 

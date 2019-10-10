@@ -3,18 +3,24 @@ let app = new Vue({
     el: '#app',
     data: {
         submitted: false,
+        playerChoice: null,
+        computerChoice: null,
+        shapes: ['rock', 'paper', 'scissors'],
+        result: false,
         tie: false,
         playerWin: false,
         computerWin: false,
-        feedback: '',
-        playerChoice: null,
-        shapes: ['rock', 'paper', 'scissors'],
-        result: false,
-        computerChoice: null,
+        losingFeedback: 'You lost, boo',
         imageSrc: '',
         imageAlt: '',
     },
     methods: {
+        retry: function () {
+            this.playerChoice = null;
+            this.submitted = false;
+            this.result = false;
+            this.computerChoice = null;
+        },
         pickShape: function () {
             this.submitted = true;
             var chosenNumber = Math.floor(Math.random() * this.shapes.length);
@@ -35,7 +41,6 @@ let app = new Vue({
             this.result = true;
             if (this.computerChoice == this.playerChoice) {
                 this.tieGame();
-                // this.feedback = 'Its a tie!';
             }
             else if (this.computerChoice == "rock") {
                 if (this.playerChoice == "paper") {
@@ -74,6 +79,7 @@ let app = new Vue({
             this.tie = false;
             this.playerWin = false;
             this.computerWin = true;
+            this.losingFeedback;
         }
     }
 })

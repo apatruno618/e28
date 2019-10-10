@@ -19,9 +19,20 @@
             border: 3px solid blue;
         }
 
+        .feedback {
+            font-weight: bold;
+        }
+
+        .win {
+            color: green;
+        }
+
+        .tieGame {
+            color: darkorange;
+        }
+
         .lost {
             color: red;
-            font-weight: bold;
         }
     </style>
 </head>
@@ -32,7 +43,7 @@
         <!-- div for player shape -->
         <div>
             <!-- two way binding of playerChoice to vue instance -->
-            <select v-model='playerChoice' autofocus>
+            <select :disabled='computerChoice' v-model='playerChoice' autofocus>
                 <!-- loops through options in shapes array -->
                 <option v-for='shape in shapes'>{{ shape }}</option>
             </select>
@@ -43,7 +54,8 @@
 
         <!-- rendered on load but inline style of display:none until playerChoice is true -->
         <div v-show='playerChoice'>
-            <button @click='pickShape' @keyup.enter='pickShape'>Rock, paper, scissors says...</button>
+            <button :disabled='computerChoice' @click='pickShape' @keyup.enter='pickShape'>Rock, paper, scissors
+                says...</button>
             <!-- only displays if computerChoice is not null, evaluates as false when null -->
             <p v-if='computerChoice'>Computer's choice: {{ computerChoice }}</p>
         </div>
@@ -53,15 +65,12 @@
 
         <!-- using template html element since this doesn't need to rendered immediately on page load -->
         <template v-if='result'>
-            <p v-if='tie'>It's a tie!</p>
-            <p v-else-if='playerWin'>You win!</p>
-            <!-- <p v-else>You lost, boo!</p> -->
-            <div v-else :class="{ lost : computerWin }">{{ losingFeedback }}</div>
-            <!-- <div v-else :class='{ lost : computerWin }'></div> -->
-            <div>
-                <button @click='retry' @keyup.enter='retry'>Click here to try again</button>
-            </div>
-
+            <span class="feedback" :class="{ win : playerWin, tieGame : tie, lost : computerWin }">
+                <p v-if='tie'>It's a tie!</p>
+                <p v-else-if='playerWin'>You win!</p>
+                <p v-else>You lost, boo!</p>
+            </span>
+            <button @click='retry' @keyup.enter='retry'>Click here to try again</button>
         </template>
     </div>
 </body>

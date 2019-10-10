@@ -10,7 +10,6 @@ let app = new Vue({
         tie: false,
         playerWin: false,
         computerWin: false,
-        losingFeedback: 'You lost, boo',
         imageSrc: '',
         imageAlt: '',
     },
@@ -79,7 +78,6 @@ let app = new Vue({
             this.tie = false;
             this.playerWin = false;
             this.computerWin = true;
-            this.losingFeedback;
         }
     }
 })

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <title>P2</title>
+    <meta charset="utf-8">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src='script.js' defer></script>
+
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        body {
+            text-align: center;
+            margin: auto;
+            border: 3px solid blue;
+        }
+
+        .feedback {
+            font-weight: bold;
+        }
+
+        .win {
+            color: green;
+        }
+
+        .tieGame {
+            color: darkorange;
+        }
+
+        .lost {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- single parent element rule, in this case its the div -->
+    <!-- browser first ignores this when renders page -->
+    <!-- x-template is a special type -->
+    <!-- this id never actually gets repeated -->
+    <script type='text/x-template' id='round-detail'>
+        <div v-if='!deleted'>
+            <ul>
+                <li>Round #: ??</li>
+                <li>Winner: ??</li>
+            </ul>
+            <button @click='deleteRound'>Delete round</button>
+            </div >
+    </script>
+
+    <h1>P2</h1>
+    <div id='app' v-cloak>
+        <round-detail></round-detail>
+        <round-detail></round-detail>
+        <round-detail></round-detail>
+
+        <!-- div for player shape -->
+        <div>
+            <!-- two way binding of playerChoice to vue instance -->
+            <select :disabled='computerChoice' v-model='playerChoice' autofocus>
+                <!-- loops through options in shapes array -->
+                <option v-for='shape in shapes'>{{ shape }}</option>
+            </select>
+            <!-- only displays if playerChoice is not null, evaluates as false when null -->
+            <p v-if='playerChoice'>Player's choice: {{ playerChoice }}</p>
+            <p v-else>Pick a shape to begin</p>
+        </div>
+
+        <!-- rendered on load but inline style of display:none until playerChoice is true -->
+        <div v-show='playerChoice'>
+            <button :disabled='computerChoice' @click='pickShape' @keyup.enter='pickShape'>Rock, paper, scissors
+                says...</button>
+            <!-- only displays if computerChoice is not null, evaluates as false when null -->
+            <p v-if='computerChoice'>Computer's choice: {{ computerChoice }}</p>
+        </div>
+
+        <!-- binds css class dynamically -->
+        <img v-if='submitted' :src='"images/" + imageSrc' :alt='imageAlt'>
+
+        <!-- using template html element since this doesn't need to rendered immediately on page load -->
+        <template v-if='result'>
+            <span class="feedback" :class="{ win : playerWin, tieGame : tie, lost : computerWin }">
+                <p v-if='tie'>It's a tie!</p>
+                <p v-else-if='playerWin'>You win!</p>
+                <p v-else>You lost, boo!</p>
+            </span>
+            <button @click='retry' @keyup.enter='retry'>Click here to try again</button>
+        </template>
+    </div>
+</body>
+
+</html>

@@ -1,13 +1,16 @@
-// be sure to place component before root Vue instance otherwise instance wouldn't have access to components
+// be sure to place component before root Vue instance otherwise the instance won't have access to components
 // components have to be multi-word to prevent from ever having a conflict with an existing html element
-// can use camel case, Vue will translate to the form html needs with hyphen aka kebab style
+// can use camel or pascal case, Vue will translate to the form html needs with hyphen aka kebab style
 Vue.component('roundDetail', {
-    // return the data as a function to allow for multiple round-details in .html
+    // returns the data as a function to allow for multiple round-details in .html
     data: function () {
         return {
-            deleted: false,
+            deleted: false
         }
     },
+    // the details we want to display in component
+    props: ['number', 'winner'],
+    // pass a string for what we want the component to be
     template: '#round-detail',
     methods: {
         deleteRound: function () {
@@ -29,6 +32,8 @@ let app = new Vue({
         computerWin: false,
         imageSrc: '',
         imageAlt: '',
+        rounds: [],
+        round: 1
     },
     methods: {
         retry: function () {
@@ -79,7 +84,10 @@ let app = new Vue({
                 else {
                     this.computerWon();
                 }
-            }
+            } this.rounds.push({
+                number: this.round++,
+                winner: 'player'
+            })
         },
         tieGame: function () {
             this.tie = true;

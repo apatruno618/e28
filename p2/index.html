@@ -44,12 +44,15 @@
     <!-- use multi-word, kebab style -->
     <script type='text/x-template' id='round-detail'>
     <!-- single parent element rule, in this case its the div -->
-    <div v-if='!deleted'>
+    <div>
         <ul>
             <li>Round #: {{ number }}</li>
             <li>Winner: {{ winner }}</li>
         </ul>
-        <button @click='deleteRound'>Delete round</button>
+        <!-- there are 2 arguments we can pass 
+            1 is name of event we want to emit
+            data we want passed as part of event -->
+        <button @click='$emit("delete-round", number)'>Delete round</button>
     </div>
     </script>
 
@@ -89,7 +92,10 @@
             <button @click='retry' @keyup.enter='retry'>Click here to try again</button>
         </template>
 
-        <round-detail v-for='round in rounds' :number='round.number' :winner='round.winner'></round-detail>
+        <!-- need a key -->
+        <round-detail v-on:delete-round='deleteRound($event)' v-for='round in rounds' :number='round.number'
+            :winner='round.winner' :key='round.number'>
+        </round-detail>
 
     </div>
 </body>

@@ -5,18 +5,23 @@ Vue.component('roundDetail', {
     // returns the data as a function to allow for multiple round-details in .html
     data: function () {
         return {
-            deleted: false
+            
         }
     },
     // the details we want to display in component
-    props: ['number', 'winner'],
-    // pass a string for what we want the component to be
-    template: '#round-detail',
-    methods: {
-        deleteRound: function () {
-            this.deleted = true;
+    // use an object to specify data type and default value for the property
+    props: {
+        'number': {
+            type: Number,
+            default: 0
+        },
+        'winner': {
+            type: String,
+            default: ''
         }
-    }
+    },
+    // pass a string for what we want the component to be
+    template: '#round-detail'
 })
 // root Vue instance
 let app = new Vue({
@@ -88,6 +93,13 @@ let app = new Vue({
                 number: this.round++,
                 winner: 'player'
             })
+        },
+        deleteRound: function (roundNumber) {
+            console.log('Invoked deleteRound from root Vue instance')
+            function isMatchingRound(round) {
+                return round.number != this;
+            }
+            this.rounds = this.rounds.filter(isMatchingRound, roundNumber);
         },
         tieGame: function () {
             this.tie = true;

@@ -1,30 +1,12 @@
-// be sure to place component before root Vue instance otherwise the instance won't have access to components
-// components have to be multi-word to prevent from ever having a conflict with an existing html element
-// use camel or pascal case, Vue will translate to the form html needs with hyphen aka kebab style
-Vue.component('gameSummary', {
-    // returns the data as a function to allow for multiple game-summary in .html
-    data: function () {
-        return {
-        }
-    },
-    // the details we want to display in component
-    // use an object to specify data type and default value for the property
-    props: {
-        'number': {
-            type: Number,
-            default: 0
-        },
-        'winner': {
-            type: String,
-            default: ''
-        }
-    },
-    // pass a string for what we want the component to be
-    template: '#game-summary'
-})
+import Vue from 'vue';
+import GameSummary from './components/GameSummary.vue';
+
 // root Vue instance
 let app = new Vue({
     el: '#app',
+    components: {
+        'game-summary': GameSummary
+    },
     data: {
         submitted: false,
         playerChoice: null,

@@ -4,16 +4,17 @@
     <p>
       Game #: {{ number }}
       <br />
-      Winner: {{ winner }}
+      Winner...: {{ winner }}
     </p>
     <!-- there are 2 arguments we can pass 
             1 is name of event we want to emit
     data we want passed as part of event-->
-    <button @click="$emit("delete-round", number)">Delete round</button>
+    <button @click="$emit('delete-round', number)">Delete round</button>
   </div>
 </template>
 
 <script>
+// this is what gets exported to root vue instance
 module.exports = {
   // returns the data as a function to allow for multiple game-summary in .html
   data: function() {

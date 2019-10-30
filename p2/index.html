@@ -5,8 +5,8 @@
     <title>P2</title>
     <meta charset="utf-8">
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
-    <script src='script.js' defer></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script> -->
+    <script src='js/script.js' defer></script>
 
     <style>
         [v-cloak] {
@@ -39,22 +39,6 @@
 </head>
 
 <body>
-    <!-- browser first ignores this when renders page -->
-    <!-- x-template is a special type -->
-    <!-- this id never actually gets repeated -->
-    <!-- use multi-word, kebab style -->
-    <script type='text/x-template' id='game-summary'>
-    <!-- single parent element rule, in this case its the div -->
-    <div>
-        <p>Game #: {{ number }}<br>
-            Winner: {{ winner }}</p>
-        <!-- there are 2 arguments we can pass 
-            1 is name of event we want to emit
-            data we want passed as part of event -->
-        <button @click='$emit("delete-round", number)'>Delete round</button>
-    </div>
-    </script>
-
     <h1>P2 Rock, Paper, Scissors</h1>
     <div id='app' v-cloak>
 

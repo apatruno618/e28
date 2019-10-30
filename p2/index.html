@@ -16,7 +16,8 @@
         body {
             text-align: center;
             margin: auto;
-            border: 3px solid blue;
+            /* border: 3px solid blue; */
+            padding: 25px 20px 75px;
         }
 
         .feedback {
@@ -42,13 +43,11 @@
     <!-- x-template is a special type -->
     <!-- this id never actually gets repeated -->
     <!-- use multi-word, kebab style -->
-    <script type='text/x-template' id='round-detail'>
+    <script type='text/x-template' id='game-summary'>
     <!-- single parent element rule, in this case its the div -->
     <div>
-        <ul>
-            <li>Round #: {{ number }}</li>
-            <li>Winner: {{ winner }}</li>
-        </ul>
+        <p>Game #: {{ number }}<br>
+            Winner: {{ winner }}</p>
         <!-- there are 2 arguments we can pass 
             1 is name of event we want to emit
             data we want passed as part of event -->
@@ -56,7 +55,7 @@
     </div>
     </script>
 
-    <h1>P2</h1>
+    <h1>P2 Rock, Paper, Scissors</h1>
     <div id='app' v-cloak>
 
         <!-- div for player shape -->
@@ -93,9 +92,9 @@
         </template>
 
         <!-- need a key -->
-        <round-detail v-on:delete-round='deleteRound($event)' v-for='round in rounds' :number='round.number'
-            :winner='round.winner' :key='round.number'>
-        </round-detail>
+        <game-summary v-on:delete-round='deleteRound($event)' v-for='game in games' :number='game.number'
+            :winner='game.winner' :key='game.number'>
+        </game-summary>
 
     </div>
 </body>

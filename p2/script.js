@@ -1,11 +1,10 @@
 // be sure to place component before root Vue instance otherwise the instance won't have access to components
 // components have to be multi-word to prevent from ever having a conflict with an existing html element
-// can use camel or pascal case, Vue will translate to the form html needs with hyphen aka kebab style
-Vue.component('roundDetail', {
-    // returns the data as a function to allow for multiple round-details in .html
+// use camel or pascal case, Vue will translate to the form html needs with hyphen aka kebab style
+Vue.component('gameSummary', {
+    // returns the data as a function to allow for multiple game-summary in .html
     data: function () {
         return {
-            
         }
     },
     // the details we want to display in component
@@ -21,7 +20,7 @@ Vue.component('roundDetail', {
         }
     },
     // pass a string for what we want the component to be
-    template: '#round-detail'
+    template: '#game-summary'
 })
 // root Vue instance
 let app = new Vue({
@@ -37,15 +36,17 @@ let app = new Vue({
         computerWin: false,
         imageSrc: '',
         imageAlt: '',
-        rounds: [],
-        round: 1
+        games: [],
+        round: 1,
+        players: ['Player', 'Computer', 'No one, tie game'],
+        winner: ''
     },
     methods: {
         retry: function () {
             this.playerChoice = null;
+            this.computerChoice = null;
             this.submitted = false;
             this.result = false;
-            this.computerChoice = null;
         },
         pickShape: function () {
             this.submitted = true;
@@ -89,9 +90,9 @@ let app = new Vue({
                 else {
                     this.computerWon();
                 }
-            } this.rounds.push({
+            } this.games.push({
                 number: this.round++,
-                winner: 'player'
+                winner: this.winner
             })
         },
         deleteRound: function (roundNumber) {
@@ -99,22 +100,25 @@ let app = new Vue({
             function isMatchingRound(round) {
                 return round.number != this;
             }
-            this.rounds = this.rounds.filter(isMatchingRound, roundNumber);
+            this.games = this.games.filter(isMatchingRound, roundNumber);
         },
         tieGame: function () {
             this.tie = true;
             this.playerWin = false;
             this.computerWin = false;
+            return this.winner = this.players[2];
         },
         playerWon: function () {
             this.tie = false;
             this.playerWin = true;
             this.computerWin = false;
+            return this.winner = this.players[0];
         },
         computerWon: function () {
             this.tie = false;
             this.playerWin = false;
             this.computerWin = true;
+            return this.winner = this.players[1];
         }
     }
 })

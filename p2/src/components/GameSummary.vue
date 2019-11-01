@@ -2,9 +2,11 @@
   <!-- single parent element rule, in this case its the div -->
   <div>
     <p>
+      Player: {{ name }}
+      <br/>
       Game #: {{ number }}
-      <br />
-      Winner...: {{ winner }}
+      <br/>
+      Winner: {{ winner }}
     </p>
     <!-- there are 2 arguments we can pass 
             1 is name of event we want to emit
@@ -23,13 +25,17 @@ module.exports = {
   // the details we want to display in component
   // use an object to specify data type and default value for the property
   props: {
+    name: {
+      type: String,
+      default: ''
+    },
     number: {
       type: Number,
       default: 0
     },
     winner: {
       type: String,
-      default: ""
+      default: ''
     }
   },
   // pass a string for what we want the component to be
@@ -37,5 +43,9 @@ module.exports = {
 };
 </script>
 
-<style>
+// scoped style only applies to to elements of that component
+<style scoped>
+div {
+  background-color:lightgrey;
+}
 </style>

@@ -9,6 +9,7 @@ let app = new Vue({
     },
     data: {
         submitted: false,
+        name: '',
         playerChoice: null,
         computerChoice: null,
         shapes: ['rock', 'paper', 'scissors'],
@@ -29,6 +30,7 @@ let app = new Vue({
             this.computerChoice = null;
             this.submitted = false;
             this.result = false;
+            this.name = '';
         },
         pickShape: function () {
             this.submitted = true;
@@ -73,12 +75,12 @@ let app = new Vue({
                     this.computerWon();
                 }
             } this.games.push({
+                name: this.name,
                 number: this.round++,
                 winner: this.winner
             })
         },
         deleteRound: function (roundNumber) {
-            console.log('Invoked deleteRound from root Vue instance')
             function isMatchingRound(round) {
                 return round.number != this;
             }

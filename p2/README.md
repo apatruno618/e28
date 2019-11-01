@@ -1,27 +1,15 @@
-*Any instructions/notes in italics should be removed from the template before submitting.* 
-
 # Project 2
 + By: Anna Patruno
-+ Production URL: <http://p2.yourdomain.com>
-+ Production URL alt: <http://p2-alt.yourdomain.com> *Remove if not applicable*
++ Production URL: <http://p2.annapatruno.xyz>
 
 ## Build strategy
-*Put an x in the build strategy you used. Put an x in each if you tackled both.*
-+ [ ] Integrated
++ [x] Integrated
 + [ ] Comprehensive
 
 ## Outside resources
-*Your list of outside resources go here.*
+I did not refer to outside resources for this project.
 
 ## Notes for instructor
-*Any notes for me to refer to while grading; if none, omit this section.*
-
-
-# Project 1
-+ By: Anna Patruno
-+ Production URL: <http://p1.annapatruno.xyz/>
-
-
-## Outside resources
-+ [A blog about using conditional class binding in Vue.js](https://michaelnthiessen.com/conditional-class-binding-vue "Using Conditional Class Bindings in Vue")
-+ [For images I did not create](https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjT-fi0zpLlAhUM8hoKHaM6An0QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.amazon.com%2FOnipse-Dev-Rock-Paper-Scissors%2Fdp%2FB07B3KJ966&psig=AOvVaw2xG1i7EFzrfBdKiSMpv7fR&ust=1570828525710059)
++ It took me a while to mentally process components and where/why they fit in a root Vue instance so I practiced by implementing the examples taught during class. I tried to change things, of course, but I just wanted to make a note to you that I realize my code looks very similar to your examples and will work on implementing more original ideas in the next project now that I've wrapped my head around the concepts.
++ **To play**: enter your name, select a shape from the dropdown, and click the `Rock, paper, scissors says...` button to load the game. A summary of the game's round will be listed at the bottom of the page.
++ **To restart the game**: click the `Click here to try again` button, enter your name, and select a new shape.

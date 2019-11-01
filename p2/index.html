@@ -39,11 +39,14 @@
 </head>
 
 <body>
-    <h1>P2 Rock, Paper, Scissors</h1>
+    <h1>P2: Rock, Paper, Scissors</h1>
     <div id='app' v-cloak>
 
         <!-- div for player shape -->
         <div>
+            <p>
+                <label>What's your name?<input type='text' v-model.lazy='name'></label>
+            </p>
             <!-- two way binding of playerChoice to vue instance -->
             <select :disabled='computerChoice' v-model='playerChoice' autofocus>
                 <!-- loops through options in shapes array -->
@@ -76,8 +79,8 @@
         </template>
 
         <!-- need a key -->
-        <game-summary v-on:delete-round='deleteRound($event)' v-for='game in games' :number='game.number'
-            :winner='game.winner' :key='game.number'>
+        <game-summary v-on:delete-round='deleteRound($event)' v-for='game in games' :name='game.name'
+            :number='game.number' :winner='game.winner' :key='game.number'>
         </game-summary>
 
     </div>

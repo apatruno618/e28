@@ -10,9 +10,9 @@ Vue.config.productionTip = false
 
 const routes = [
   // each route is an entry point into the application
-  { path: '/', component: ShowHome },
-  { path: '/products', component: ShowProducts },
-  { path: '/categories', component: ShowCategories }
+  { path: '/', component: ShowHome, name: 'home' },
+  { path: '/products', component: ShowProducts, name: 'products' },
+  { path: '/categories', component: ShowCategories, name: 'categories' }
 ]
 
 const router = new VueRouter({

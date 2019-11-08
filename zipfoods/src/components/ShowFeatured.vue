@@ -12,6 +12,7 @@ import { products } from './../products.js';
 
 export default {
   name: 'ShowFeatured',
+  props: ['category'],
   computed: {
     featuredProducts: function() {
       //   goes into each product, goes into category and sees if this is in the category
@@ -25,7 +26,6 @@ export default {
   },
   data: function() {
     return {
-      category: 'frozen',
       products: products
     };
   }

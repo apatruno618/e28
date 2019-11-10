@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import { products } from './../products.js';
+import { products } from './../../products.js';
 
 export default {
-  name: '',
+  name: 'CategoriesPage',
   data: function() {
     return {
       products: products

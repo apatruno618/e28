@@ -117,18 +117,16 @@ PAGE SPECIFIC
         margin: auto;
         margin-bottom: 20px;
         border: 1px solid black;
-        padding-top: 20px;
-        padding: 5px;
+        padding: 20px;
 
         .product-name {
             font-weight: bold;
             font-size: 2.0rem;
-            margin: 10px;
+            margin: 5px 0 10px 0;
         }
 
         .product-thumb {
             width: 200px;
-            margin: 10px;
         }
 
         .product-description {
@@ -152,10 +150,52 @@ PAGE SPECIFIC
     padding: 10px;
 }
 
+#product-page {
+    img {
+        width: 200px;
+    }
+
+    .description {
+        font-size: 2rem;
+    }
+
+    .price {
+        font-size: 2rem;
+    }
+
+    button {
+        display: block;
+        margin: 10px auto;
+        font-size: 2rem;
+    }
+}
+
 /*----------------------------------------------------
 MISC
 -----------------------------------------------------*/
 .cleanList {
     list-style-type: none;
     padding: 0;
+}
+
+.alert {
+    background-color: $green;
+    color: white;
+    border-radius: $radius;
+    font-weight: bold;
+    padding: 5px;
+    margin: 5px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to
+
+/* .fade-leave-active below version 2.1.8 */
+    {
+    opacity: 0;
 }

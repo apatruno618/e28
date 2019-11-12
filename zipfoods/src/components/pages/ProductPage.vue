@@ -10,12 +10,21 @@
     <p class='description'>{{ product.description }}</p>
     <div class='price'>${{ product.price }}</div>
 
+    <button @click='addToCart(product.id)'>Add to cart</button>
+
+    <!-- adds transition class to element for us  -->
+    <transition name='fade'>
+      <div class='alert' v-if='addAlert'>Your cart has been updated</div>
+    </transition>
+
     <router-link :to='"/products"'>&larr; Return to all products</router-link>
   </div>
 </template>
 
 <script>
 const axios = require('axios');
+
+import Cart from './../../Cart.js';
 
 export default {
   name: 'ProductPage',
@@ -24,7 +33,8 @@ export default {
     return {
       // params gives you access to any of the parameters in a path like :id but we will instead pass the id in as a prop as shown above
       //   id: this.$route.params.id
-      product: null
+      product: null,
+      addAlert: false
     };
   },
   mounted() {
@@ -36,6 +46,17 @@ export default {
       .then(response => {
         this.product = response.data;
       });
+  },
+  methods: {
+    addToCart: function(productId) {
+      //   console.log(productId);
+      let cart = new Cart();
+      cart.add(productId);
+
+      this.addAlert = true;
+
+      setTimeout(() => (this.addAlert = false), 1500);
+    }
   }
 };
 </script>

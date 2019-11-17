@@ -4,7 +4,7 @@ export { default as Cart } from './Cart';
 export const axios = require('axios');
 
 export const config = {
-    api: 'https://my-json-server.typicode.com/apatruno618/e28/',
+    api: 'https://my-json-server.typicode.com/apatruno618/e28-zipfoods-api/',
 }
 
 // for global state

@@ -5,7 +5,7 @@ import ProductsPage from './components/pages/ProductsPage.vue';
 import HomePage from './components/pages/HomePage.vue';
 import CategoriesPage from './components/pages/CategoriesPage.vue';
 import ProductPage from './components/pages/ProductPage.vue';
-import CartPage from '.components/pages/CartPage.vue';
+import CartPage from './components/pages/CartPage.vue';
 
 
 Vue.use(VueRouter);

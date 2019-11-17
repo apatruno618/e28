@@ -25,7 +25,7 @@
 // const axios = require('axios');
 import * as app from './../../app.js';
 
-import Cart from './../../Cart.js';
+// import Cart from './../../Cart.js';
 
 export default {
   name: 'ProductPage',

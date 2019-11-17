@@ -22,7 +22,8 @@
 </template>
 
 <script>
-const axios = require('axios');
+// const axios = require('axios');
+import * as app from './../../app.js';
 
 import Cart from './../../Cart.js';
 
@@ -38,7 +39,7 @@ export default {
     };
   },
   mounted() {
-    axios
+    app.axios
       .get(
         'https://my-json-server.typicode.com/apatruno618/e28-zipfoods-api/products/' +
           this.id
@@ -50,8 +51,10 @@ export default {
   methods: {
     addToCart: function(productId) {
       //   console.log(productId);
-      let cart = new Cart();
+      let cart = new app.Cart();
       cart.add(productId);
+
+      app.store.cartCount = cart.count();
 
       this.addAlert = true;
 

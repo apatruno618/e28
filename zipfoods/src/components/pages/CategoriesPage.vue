@@ -10,6 +10,7 @@
 <script>
 // import { products } from './../../products.js';
 const axios = require('axios');
+// import * as app from './../../app.js';
 
 export default {
   name: 'CategoriesPage',

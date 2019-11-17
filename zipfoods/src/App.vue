@@ -9,7 +9,11 @@
           <router-link exact :to='{ name: link }'>{{ link }}</router-link>
         </li>-->
         <li v-for='link in links' :key='link'>
-          <router-link exact :to='{ name: link }'>{{ link }}</router-link>
+          <router-link exact :to='{ name: link }'>
+            {{ link }}
+            <!-- cart count -->
+            <span v-if='link == "cart"'>({{ sharedState.cartCount }})</span>
+          </router-link>
         </li>
       </ul>
     </nav>
@@ -18,6 +22,8 @@
 </template>
 
 <script>
+import * as app from './app.js';
+
 import { products } from './products.js';
 
 export default {
@@ -27,7 +33,9 @@ export default {
     return {
       products: products,
       // src/App.vue data properties
-      links: ['home', 'products', 'categories']
+      links: ['home', 'products', 'categories', 'cart'],
+      cartCount: null,
+      sharedState: app.store
     };
   },
   mounted() {
@@ -50,6 +58,9 @@ export default {
 
     let userObj = JSON.parse(localStorage.getItem('user'));
     console.log(userObj.firstName);
+    this.cart = new app.Cart();
+    // this.cartCount = this.cart.count();
+    app.store.cartCount = this.cart.count();
   }
 };
 </script>

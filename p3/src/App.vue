@@ -1,16 +1,14 @@
 <template>
   <div id='app'>
     <img id='logo' alt='TurkeyTable logo' src='./assets/turkeytable-logo.png' />
-    <!-- <show-home></show-home>
-    <show-categories></show-categories>
-    <show-recipes></show-recipes>-->
-    <nav>
-      <router-link to='/' exact>Home</router-link>
-      <router-link to='/recipes' exact>Recipes</router-link>
-      <router-link to='/categories' exact>Categories</router-link>
+    <nav class='topnav'>
+      <ul>
+        <li v-for='link in links' :key='link'>
+          <router-link exact :to='{ name: link }'>{{ link }}</router-link>
+        </li>
+      </ul>
     </nav>
     <router-view></router-view>
-
     <!-- <HelloWorld msg='Welcome to Your Vue.js App' /> -->
   </div>
 </template>
@@ -29,7 +27,8 @@ export default {
   // },
   data: function() {
     return {
-      recipes: recipes
+      recipes: recipes,
+      links: ['home', 'recipes', 'categories']
     };
   }
 };

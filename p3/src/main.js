@@ -5,13 +5,13 @@ import ShowHome from './components/ShowHome.vue';
 import ShowCategories from './components/ShowCategories.vue';
 import ShowRecipes from './components/ShowRecipes.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 Vue.config.productionTip = false
 
 const routes = [
-  { path: '/', component: ShowHome },
-  { path: '/recipes', component: ShowRecipes },
-  { path: '/categories', component: ShowCategories }
+  { path: '/', component: ShowHome, name: 'home' },
+  { path: '/recipes', component: ShowRecipes, name: 'recipes' },
+  { path: '/categories', component: ShowCategories, name: 'categories' }
 ]
 
 const router = new VueRouter({

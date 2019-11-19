@@ -1,3 +1,5 @@
+// single source of truth therefore, deleting an item (with Vuetools) from 
+// ShowSelected with also remove it from anywhere else that's pulling from this single source of truth
 export const recipes = [
     {
         id: 1,

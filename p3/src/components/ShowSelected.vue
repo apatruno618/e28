@@ -8,9 +8,10 @@
 </template>
 
 <script>
+import { recipes } from './../recipes.js';
+
 export default {
   name: 'ShowSelected',
-  props: ['recipes'],
   computed: {
     selectedCategory: function() {
       function isMatch(recipe) {
@@ -22,7 +23,8 @@ export default {
   },
   data: function() {
     return {
-      category: 'non-vegan'
+      category: 'non-vegan',
+      recipes: recipes
     };
   }
 };

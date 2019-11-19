@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Recipes</h2>
+    <h2>All Recipes</h2>
     <div id='recipes' class='grid-container grid-container--fit'>
       <show-recipe v-for='recipe in recipes' :key='recipe.id' :recipe='recipe'></show-recipe>
     </div>
@@ -9,11 +9,16 @@
 
 <script>
 import ShowRecipe from './ShowRecipe.vue';
+import { recipes } from './../recipes.js';
 
 export default {
   name: 'ShowRecipes',
-  props: ['recipes'],
-  components: { ShowRecipe }
+  components: { ShowRecipe },
+  data: function() {
+    return {
+      recipes: recipes
+    };
+  }
 };
 </script>
 

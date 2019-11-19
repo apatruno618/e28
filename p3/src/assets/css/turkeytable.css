@@ -1,0 +1,6 @@
+#logo {
+    /* Actual width is 636; displaying at half-size for retina screens */
+    width: 400px;
+    /* border-radius: 8px; */
+    border-radius: 50%;
+}

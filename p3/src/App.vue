@@ -1,9 +1,15 @@
 <template>
   <div id='app'>
     <img id='logo' alt='TurkeyTable logo' src='./assets/turkeytable-logo.png' />
-    <show-home></show-home>
+    <!-- <show-home></show-home>
     <show-categories></show-categories>
-    <show-recipes></show-recipes>
+    <show-recipes></show-recipes>-->
+    <nav>
+      <router-link to='/' exact>Home</router-link>
+      <router-link to='/recipes' exact>Recipes</router-link>
+      <router-link to='/categories' exact>Categories</router-link>
+    </nav>
+    <router-view></router-view>
 
     <!-- <HelloWorld msg='Welcome to Your Vue.js App' /> -->
   </div>
@@ -11,19 +17,16 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue';
-import ShowHome from './components/ShowHome.vue';
-import ShowCategories from './components/ShowCategories.vue';
-import ShowRecipes from './components/ShowRecipes.vue';
 import { recipes } from './recipes.js';
 
 export default {
   name: 'app',
-  components: {
-    ShowHome,
-    ShowCategories,
-    ShowRecipes
-    // HelloWorld
-  },
+  // components: {
+  //   ShowHome,
+  //   ShowCategories,
+  //   ShowRecipes
+  //   // HelloWorld
+  // },
   data: function() {
     return {
       recipes: recipes

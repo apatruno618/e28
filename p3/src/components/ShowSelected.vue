@@ -12,6 +12,7 @@ import { recipes } from './../recipes.js';
 
 export default {
   name: 'ShowSelected',
+  props: ['category'],
   computed: {
     selectedCategory: function() {
       function isMatch(recipe) {
@@ -23,7 +24,6 @@ export default {
   },
   data: function() {
     return {
-      category: 'non-vegan',
       recipes: recipes
     };
   }

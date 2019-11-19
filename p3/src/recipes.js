@@ -265,7 +265,7 @@ export const recipes = [
     {
         id: 10,
         name: 'Wild Mushroom Gravy',
-        level: 'Easy'
+        level: 'Easy',
         time: '35 min ',
         yield: '8 servings',
         special_equipment: null,
@@ -351,7 +351,7 @@ export const recipes = [
     },
     {
         id: 13,
-        name: 'Lentil & Sweet Potato Shepherd’s Pie'
+        name: 'Lentil & Sweet Potato Shepherd’s Pie',
         level: 'Easy',
         time: '1 hr',
         yield: '6 servings',

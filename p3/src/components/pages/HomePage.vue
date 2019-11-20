@@ -5,10 +5,10 @@
   </div>
 </template>
 <script>
-import ShowSelected from './ShowSelected.vue';
+import ShowSelected from './../ShowSelected.vue';
 
 export default {
-  name: 'ShowHome',
+  name: 'HomePage',
   components: { ShowSelected },
   data: function() {
     return {

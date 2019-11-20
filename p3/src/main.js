@@ -1,17 +1,19 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
-import ShowHome from './components/ShowHome.vue';
-import ShowCategories from './components/ShowCategories.vue';
-import ShowRecipes from './components/ShowRecipes.vue';
+import HomePage from './components/pages/HomePage.vue';
+import CategoriesPage from './components/pages/CategoriesPage.vue';
+import RecipesPage from './components/pages/RecipesPage.vue';
+import RecipePage from './components/pages/RecipePage.vue';
 
 Vue.use(VueRouter);
 Vue.config.productionTip = false
 
 const routes = [
-  { path: '/', component: ShowHome, name: 'home' },
-  { path: '/recipes', component: ShowRecipes, name: 'recipes' },
-  { path: '/categories', component: ShowCategories, name: 'categories' }
+  { path: '/', component: HomePage, name: 'home' },
+  { path: '/recipes', component: RecipesPage, name: 'recipes' },
+  { path: '/recipe/:id', component: RecipePage, name: 'recipe', props: true },
+  { path: '/categories', component: CategoriesPage, name: 'categories' }
 ]
 
 const router = new VueRouter({

@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import ShowRecipe from './ShowRecipe.vue';
-import { recipes } from './../recipes.js';
+import ShowRecipe from './../ShowRecipe.vue';
+import { recipes } from './../../recipes.js';
 
 export default {
-  name: 'ShowRecipes',
+  name: 'RecipesPage',
   components: { ShowRecipe },
   data: function() {
     return {

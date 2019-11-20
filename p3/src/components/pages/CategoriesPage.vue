@@ -15,17 +15,18 @@ export default {
   name: 'CategoriesPage',
   data: function() {
     return {
-      recipes: null
+      recipes: null,
+      categories: null
     };
   },
-  computed: {
-    categories: function() {
+  methods: {
+    loadCategories: function() {
       // extracts categories from recipes data
       let categories = this.recipes.map(recipe => recipe.categories);
       let mergedCategories = [].concat.apply([], categories);
 
       //   returns unique, sorted categories
-      return [...new Set(mergedCategories)].sort();
+      this.categories = [...new Set(mergedCategories)].sort();
     }
   },
   mounted() {
@@ -35,6 +36,7 @@ export default {
       )
       .then(response => {
         this.recipes = response.data;
+        this.loadCategories();
       });
   }
 };

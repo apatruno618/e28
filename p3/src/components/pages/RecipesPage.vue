@@ -22,9 +22,7 @@ export default {
   },
   mounted() {
     axios
-      .get(
-        'https://my-json-server.typicode.com/apatruno618/e28-p3-api/recipes/'
-      )
+      .get('https://my-json-server.typicode.com/apatruno618/e28-p3-api/recipes')
       .then(response => {
         this.recipes = response.data;
       });

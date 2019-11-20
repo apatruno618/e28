@@ -5,7 +5,7 @@
       <div class='recipe-name'>{{ recipe.name }}</div>
       <img
         class='recipe-thumb'
-        :alt='" Recipe image of" + recipe.name  '
+        :alt='" Recipe image of" + recipe.name'
         :src='"./../assets/images/recipes/" + recipe.id + ".jpg" '
       />
       <div class='recipe-level'>{{ recipe.level }}</div>

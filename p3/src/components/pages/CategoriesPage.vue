@@ -8,13 +8,14 @@
 </template>
 
 <script>
-import { recipes } from './../../recipes.js';
+// import { recipes } from './../../recipes.js';
+const axios = require('axios');
 
 export default {
   name: 'CategoriesPage',
   data: function() {
     return {
-      recipes: recipes
+      recipes: null
     };
   },
   computed: {
@@ -26,6 +27,15 @@ export default {
       //   returns unique, sorted categories
       return [...new Set(mergedCategories)].sort();
     }
+  },
+  mounted() {
+    axios
+      .get(
+        'https://my-json-server.typicode.com/apatruno618/e28-p3-api/recipes/'
+      )
+      .then(response => {
+        this.recipes = response.data;
+      });
   }
 };
 </script>

@@ -31,6 +31,16 @@ export default {
       links: ['home', 'recipes', 'categories']
     };
   }
+  // mounted() {
+  //   // retrieving data so using a get request
+  //   axios
+  //     .get(
+  //       'https://my-json-server.typicode.com/apatruno618/e28-p3-api/recipes/'
+  //     )
+  //     .then(response => {
+  //       console.log(response.data);
+  //     });
+  // }
 };
 </script>
 

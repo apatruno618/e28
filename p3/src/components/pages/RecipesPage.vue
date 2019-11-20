@@ -9,15 +9,25 @@
 
 <script>
 import ShowRecipe from './../ShowRecipe.vue';
-import { recipes } from './../../recipes.js';
+// import { recipes } from './../../recipes.js';
+const axios = require('axios');
 
 export default {
   name: 'RecipesPage',
   components: { ShowRecipe },
   data: function() {
     return {
-      recipes: recipes
+      recipes: null
     };
+  },
+  mounted() {
+    axios
+      .get(
+        'https://my-json-server.typicode.com/apatruno618/e28-p3-api/recipes/'
+      )
+      .then(response => {
+        this.recipes = response.data;
+      });
   }
 };
 </script>

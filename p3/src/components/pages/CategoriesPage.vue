@@ -8,8 +8,7 @@
 </template>
 
 <script>
-// import { recipes } from './../../recipes.js';
-const axios = require('axios');
+import * as app from './../../app.js';
 
 export default {
   name: 'CategoriesPage',
@@ -30,14 +29,10 @@ export default {
     }
   },
   mounted() {
-    axios
-      .get(
-        'https://my-json-server.typicode.com/apatruno618/e28-p3-api/recipes/'
-      )
-      .then(response => {
-        this.recipes = response.data;
-        this.loadCategories();
-      });
+    app.axios.get(app.config.api).then(response => {
+      this.recipes = response.data;
+      this.loadCategories();
+    });
   }
 };
 </script>

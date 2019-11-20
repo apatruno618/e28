@@ -1,5 +1,7 @@
 <template>
   <div id='app'>
+    <h1>TurkeyTable</h1>
+    <p>Delicious Thanksgiving recipes designed to taste even better the next day</p>
     <img id='logo' alt='TurkeyTable logo' src='./assets/turkeytable-logo.png' />
     <nav class='topnav'>
       <ul>
@@ -9,38 +11,20 @@
       </ul>
     </nav>
     <router-view></router-view>
-    <!-- <HelloWorld msg='Welcome to Your Vue.js App' /> -->
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue';
 import { recipes } from './recipes.js';
 
 export default {
   name: 'app',
-  // components: {
-  //   ShowHome,
-  //   ShowCategories,
-  //   ShowRecipes
-  //   // HelloWorld
-  // },
   data: function() {
     return {
       recipes: recipes,
-      links: ['home', 'recipes', 'categories']
+      links: ['home', 'recipes', 'categories', 'favorites']
     };
   }
-  // mounted() {
-  //   // retrieving data so using a get request
-  //   axios
-  //     .get(
-  //       'https://my-json-server.typicode.com/apatruno618/e28-p3-api/recipes/'
-  //     )
-  //     .then(response => {
-  //       console.log(response.data);
-  //     });
-  // }
 };
 </script>
 

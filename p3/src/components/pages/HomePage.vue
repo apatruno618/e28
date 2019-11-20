@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Delicious Thanksgiving recipes designed to taste even better the next day</p>
+    <h2 class='a'>{{ selectedCategory }} recipes</h2>
     <show-selected :category='selectedCategory'></show-selected>
   </div>
 </template>
@@ -17,5 +17,11 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
+p {
+  text-align: left;
+}
+h2.a {
+  text-transform: capitalize;
+}
 </style>

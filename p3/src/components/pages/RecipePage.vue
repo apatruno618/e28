@@ -1,7 +1,5 @@
 <template>
   <div id='recipe-page' v-if='recipe'>
-    <h1>Recipe {{ id }}</h1>
-    {{ recipe.name }}
     <h1 class='recipe-name'>{{ recipe.name }}</h1>
     <img
       class='recipe-thumb'
@@ -19,12 +17,14 @@
     <ol>
       <li v-for='(direction, id) in directions' :key='id'>{{ direction }}</li>
     </ol>
+    <button @click='addToFavorites(recipe.id)'>Add to Favorites</button>
+    <br />
     <router-link exact :to='"/recipes"'>&larr; Return to all recipes</router-link>
   </div>
 </template>
 
 <script>
-const axios = require('axios');
+import * as app from './../../app.js';
 
 export default {
   name: 'RecipePage',
@@ -36,26 +36,24 @@ export default {
       directions: null
     };
   },
+  mounted() {
+    app.axios.get(app.config.api + this.id).then(response => {
+      this.recipe = response.data;
+      this.loadIngredients();
+      this.loadDirections();
+    });
+  },
   methods: {
     loadIngredients: function() {
       this.ingredients = this.recipe.ingredients;
     },
     loadDirections: function() {
       this.directions = this.recipe.directions;
+    },
+    addToFavorites: function(recipeId) {
+      let favorites = new app.Favorites();
+      favorites.add(recipeId);
     }
-  },
-  mounted() {
-    axios
-      .get(
-        'https://my-json-server.typicode.com/apatruno618/e28-p3-api/recipes/' +
-          this.id
-      )
-      .then(response => {
-        this.recipe = response.data;
-        this.loadIngredients();
-        this.loadDirections();
-        // console.log(this.recipe);
-      });
   }
 };
 </script>

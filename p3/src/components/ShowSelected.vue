@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2>Recipes of Selected Category</h2>
     <ul>
       <li v-for='recipe in selectedCategory' :key='recipe.id'>{{ recipe.name }}</li>
     </ul>

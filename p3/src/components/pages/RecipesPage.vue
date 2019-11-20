@@ -9,8 +9,7 @@
 
 <script>
 import ShowRecipe from './../ShowRecipe.vue';
-// import { recipes } from './../../recipes.js';
-const axios = require('axios');
+import * as app from './../../app.js';
 
 export default {
   name: 'RecipesPage',
@@ -21,8 +20,8 @@ export default {
     };
   },
   mounted() {
-    axios
-      .get('https://my-json-server.typicode.com/apatruno618/e28-p3-api/recipes')
+    app.axios
+      .get(app.config.api)
       .then(response => {
         this.recipes = response.data;
       });

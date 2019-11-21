@@ -4,6 +4,7 @@
     <show-selected :category='selectedCategory'></show-selected>
   </div>
 </template>
+
 <script>
 import ShowSelected from './../ShowSelected.vue';
 
@@ -12,11 +13,12 @@ export default {
   components: { ShowSelected },
   data: function() {
     return {
-      selectedCategory: 'vegan'
+      selectedCategory: 'side dish'
     };
   }
 };
 </script>
+
 <style scoped>
 p {
   text-align: left;

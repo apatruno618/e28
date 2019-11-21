@@ -15,13 +15,10 @@
 </template>
 
 <script>
-import { recipes } from './recipes.js';
-
 export default {
   name: 'app',
   data: function() {
     return {
-      recipes: recipes,
       links: ['home', 'recipes', 'categories', 'favorites']
     };
   }

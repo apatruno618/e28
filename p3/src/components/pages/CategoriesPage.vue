@@ -24,7 +24,7 @@ export default {
       let categories = this.recipes.map(recipe => recipe.categories);
       let mergedCategories = [].concat.apply([], categories);
 
-      //   returns unique, sorted categories
+      // returns unique, sorted categories
       this.categories = [...new Set(mergedCategories)].sort();
     }
   },

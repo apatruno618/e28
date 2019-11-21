@@ -1,34 +1,6 @@
-# p3
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-
-*Any instructions/notes in italics should be removed from the template before submitting.* 
-
 # Project 3
-+ By: *your first and last name*
-+ Production URL: <http://p3.yourdomain.com>
++ By: Anna Patruno
++ Production URL: <http://p3.annapatruno.xyz>
 
 
 ## Outline of features

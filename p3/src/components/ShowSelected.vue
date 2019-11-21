@@ -1,17 +1,22 @@
 <template>
   <div>
-    <ul>
+    <ul v-if='recipes'>
       <li v-for='recipe in selectedCategory' :key='recipe.id'>{{ recipe.name }}</li>
     </ul>
   </div>
 </template>
 
 <script>
-import { recipes } from './../recipes.js';
+import * as app from './../app.js';
 
 export default {
   name: 'ShowSelected',
   props: ['category'],
+  data: function() {
+    return {
+      recipes: null
+    };
+  },
   computed: {
     selectedCategory: function() {
       function isMatch(recipe) {
@@ -21,10 +26,10 @@ export default {
       return this.recipes.filter(isMatch, this.category);
     }
   },
-  data: function() {
-    return {
-      recipes: recipes
-    };
+  mounted() {
+    app.axios.get(app.config.api).then(response => {
+      this.recipes = response.data;
+    });
   }
 };
 </script>

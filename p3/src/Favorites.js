@@ -1,8 +1,5 @@
 export default class Favorites {
 
-    /**
-     * 
-     */
     // this method automatically gets invoked
     constructor() {
         // Extract JSON bookmark string/value from local storage
@@ -18,7 +15,6 @@ export default class Favorites {
     getItems() {
         return this.items;
     }
-
 
     /**
      * Updates bookmark in localstorage

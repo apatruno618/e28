@@ -36,13 +36,6 @@ export default {
       directions: null
     };
   },
-  mounted() {
-    app.axios.get(app.config.api + this.id).then(response => {
-      this.recipe = response.data;
-      this.loadIngredients();
-      this.loadDirections();
-    });
-  },
   methods: {
     loadIngredients: function() {
       this.ingredients = this.recipe.ingredients;
@@ -54,6 +47,13 @@ export default {
       let favorites = new app.Favorites();
       favorites.add(recipeId);
     }
+  },
+  mounted() {
+    app.axios.get(app.config.api + this.id).then(response => {
+      this.recipe = response.data;
+      this.loadIngredients();
+      this.loadDirections();
+    });
   }
 };
 </script>

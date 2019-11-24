@@ -12,7 +12,7 @@
           <router-link exact :to='{ name: link }'>
             {{ link }}
             <!-- cart count -->
-            <span v-if='link == "cart"'>({{ sharedState.cartCount }})</span>
+            <span v-if='link == "cart"'>({{ cartCount }})</span>
           </router-link>
         </li>
       </ul>
@@ -33,33 +33,16 @@ export default {
     return {
       products: products,
       // src/App.vue data properties
-      links: ['home', 'products', 'categories', 'cart'],
-      cartCount: null,
-      sharedState: app.store
+      links: ['home', 'products', 'categories', 'cart']
     };
   },
+  computed: {
+    cartCount: function() {
+      return this.$store.state.cartCount;
+    }
+  },
   mounted() {
-    // Store/update a key/value pair, its a key value pair system
-    // localStorage.setItem('name', 'Bob');
-
-    // Retrieve (by key)
-    // console.log(localStorage.getItem('name'));
-
-    // Remove (by key) key/value pair
-    // localStorage.removeItem('name');
-
-    // let userObj = {
-    //   firstName: 'Jamal',
-    //   lastName: 'Jones',
-    //   email: 'jjones@gmail.com'
-    // };
-
-    // localStorage.setItem('user', JSON.stringify(userObj));
-
-    let userObj = JSON.parse(localStorage.getItem('user'));
-    console.log(userObj.firstName);
     this.cart = new app.Cart();
-    // this.cartCount = this.cart.count();
     app.store.cartCount = this.cart.count();
   }
 };

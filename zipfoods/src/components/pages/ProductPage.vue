@@ -32,8 +32,6 @@ export default {
   props: ['id'],
   data: function() {
     return {
-      // params gives you access to any of the parameters in a path like :id but we will instead pass the id in as a prop as shown above
-      //   id: this.$route.params.id
       product: null,
       addAlert: false
     };
@@ -54,7 +52,9 @@ export default {
       let cart = new app.Cart();
       cart.add(productId);
 
-      app.store.cartCount = cart.count();
+      // app.store.cartCount = cart.count();
+
+      this.$store.commit('updateCartCount', 1);
 
       this.addAlert = true;
 

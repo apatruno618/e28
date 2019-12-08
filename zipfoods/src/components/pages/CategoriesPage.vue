@@ -9,38 +9,29 @@
 
 <script>
 // import { products } from './../../products.js';
-const axios = require('axios');
+// const axios = require('axios');
 // import * as app from './../../app.js';
 
 export default {
   name: 'CategoriesPage',
   data: function() {
-    return {
-      products: null,
-      categories: null
-    };
+    return {};
   },
   methods: {
-    loadCategories: function() {
+    loadCategories: function() {}
+  },
+  computed: {
+    products: function() {
+      return this.$store.state.products;
+    },
+    categories: function() {
       //   extracts categories from products data
       let categories = this.products.map(product => product.categories);
       //   merges categories together into an array
       let mergedCategories = [].concat.apply([], categories);
-
       // Returns unique, sorted categories and sorts alphabetically
-      this.categories = [...new Set(mergedCategories)].sort();
+      return [...new Set(mergedCategories)].sort();
     }
-  },
-  mounted() {
-    axios
-      .get(
-        'https://my-json-server.typicode.com/apatruno618/e28-zipfoods-api/products'
-      )
-      .then(response => {
-        this.products = response.data;
-        // categories will not get loaded until page is mounted
-        this.loadCategories();
-      });
   }
 };
 </script>

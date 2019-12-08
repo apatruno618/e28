@@ -32,20 +32,15 @@ export default {
   props: ['id'],
   data: function() {
     return {
-      product: null,
       addAlert: false
     };
   },
-  mounted() {
-    app.axios
-      .get(
-        'https://my-json-server.typicode.com/apatruno618/e28-zipfoods-api/products/' +
-          this.id
-      )
-      .then(response => {
-        this.product = response.data;
-      });
+  computed: {
+    product: function() {
+      return this.$store.getters.getProductById(this.id);
+    }
   },
+  mounted() {},
   methods: {
     addToCart: function(productId) {
       //   console.log(productId);

@@ -38,12 +38,17 @@ export default {
   },
   computed: {
     cartCount: function() {
+      // if cartCount is changed in main store, it will reflect in this child component
       return this.$store.state.cartCount;
     }
   },
   mounted() {
     this.cart = new app.Cart();
-    app.store.cartCount = this.cart.count();
+    // app.store.cartCount = this.cart.count();
+    // sets store from local storage
+    this.$store.commit('setCartCount', this.cart.count());
+    // will make the server request to get products data by calling mutation
+    this.$store.dispatch('setProducts');
   }
 };
 </script>

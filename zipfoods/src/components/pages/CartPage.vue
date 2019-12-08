@@ -24,8 +24,7 @@ export default {
   data: function() {
     return {
       items: [],
-      cart: null,
-      products: []
+      cart: null
     };
   },
   methods: {
@@ -34,19 +33,19 @@ export default {
     },
     removeFromCart: function(productId) {
       this.cart.remove(productId);
-      app.store.cartCount = this.cart.count();
+      // app.store.cartCount = this.cart.count();
+      this.$store.commit('setCartCount', this.cart.count());
     }
   },
   mounted() {
     this.cart = new app.Cart();
     // items is dependent on cart data property so everything is reactive
     this.items = this.cart.getItems();
-    // It would be more ideal if we could ping our server-api for *just*
-    // the products that are in our cart. However, we don't have that option
-    // with our Mock API, so we’re fetching all the product data.
-    this.products = app.axios
-      .get(app.config.api + 'products')
-      .then(response => (this.products = response.data));
+  },
+  computed: {
+    products: function() {
+      return this.$store.state.products;
+    }
   }
 };
 </script>

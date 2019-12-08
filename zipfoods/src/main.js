@@ -30,7 +30,7 @@ const router = new VueRouter({
 
 new Vue({
   router: router,
-  // this will inject store in all components 
+  // this will inject store capabilities in all components 
   // access via this.$store
   store: store,
   render: h => h(App),

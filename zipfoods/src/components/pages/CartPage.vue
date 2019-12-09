@@ -4,12 +4,12 @@
 
     <div v-if='items.length == 0'>No items</div>
 
-    <ul v-else-if='products.length > 0' class='cleanList'>
+    <ul data-test='cart-contents' v-else-if='products.length > 0' class='cleanList'>
       <!-- iterate through items data property -->
       <!-- for each, button can remove the item -->
       <li v-for='item in items' :key='item.id'>
         <!-- pass id for items -->
-        <button @click='removeFromCart(item.id)'>Remove</button>
+        <button data-test='remove-from-cart-button' @click='removeFromCart(item.id)'>Remove</button>
         {{ item.quantity }} x {{ getProductDetails(item.id)['name'] }}
       </li>
     </ul>

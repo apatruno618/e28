@@ -12,7 +12,7 @@
           <router-link exact :to='{ name: link }'>
             {{ link }}
             <!-- cart count -->
-            <span v-if='link == "cart"'>({{ cartCount }})</span>
+            <span data-test='cart-count' v-if='link == "cart"'>({{ cartCount }})</span>
           </router-link>
         </li>
       </ul>

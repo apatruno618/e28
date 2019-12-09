@@ -2,7 +2,7 @@
   <div>
     <h2>Categories</h2>
     <ul class='cleanList'>
-      <li v-for='(category, id) in categories' :key='id'>{{ category }}</li>
+      <li data-test='category-name' v-for='(category, id) in categories' :key='id'>{{ category }}</li>
     </ul>
   </div>
 </template>

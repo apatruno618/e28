@@ -10,7 +10,7 @@
       <img
         class='product-thumb'
         :alt='"Product image of  " + product.name'
-        :src='"./../assets/images/products/" + product.slug + ".jpg"'
+        :src='product.slug | productImage'
       />
     </router-link>
   </div>

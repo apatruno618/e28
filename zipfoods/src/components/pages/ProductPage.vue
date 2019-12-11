@@ -2,15 +2,15 @@
   <div id='product-page' v-if='product'>
     <h1 data-test='product-name'>{{ product.name }}</h1>
     <img
-      v-if='product.id'
+      v-if='product.slug'
       class='product-thumb'
       :alt='"Product image of  " + product.name'
-      :src='"./../../assets/images/products/" + product.id + ".jpg"'
+      :src='"./../../assets/images/products/" + product.slug + ".jpg"'
     />
     <p class='description'>{{ product.description }}</p>
     <div class='price'>${{ product.price }}</div>
 
-    <button data-test='add-to-cart-button' @click='addToCart(product.id)'>Add to cart</button>
+    <button data-test='add-to-cart-button' @click='addToCart(product.slug)'>Add to cart</button>
 
     <!-- adds transition class to element for us  -->
     <transition name='fade'>
@@ -29,7 +29,7 @@ import * as app from './../../app.js';
 
 export default {
   name: 'ProductPage',
-  props: ['id'],
+  props: ['slug'],
   data: function() {
     return {
       addAlert: false
@@ -37,15 +37,15 @@ export default {
   },
   computed: {
     product: function() {
-      return this.$store.getters.getProductById(this.id);
+      return this.$store.getters.getProductBySlug(this.slug);
     }
   },
   mounted() {},
   methods: {
-    addToCart: function(productId) {
-      //   console.log(productId);
+    addToCart: function(productSlug) {
+      //   console.log(productSlug);
       let cart = new app.Cart();
-      cart.add(productId);
+      cart.add(productSlug);
 
       // app.store.cartCount = cart.count();
 

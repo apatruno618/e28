@@ -13,8 +13,7 @@ describe('ZipFoods', () => {
   // Define a product we can use throughout our tests
   let product = {
     name: 'Driscoll’s Strawberries',
-    slug: 'driscolls-strawberries',
-    id: 1
+    slug: 'driscolls-strawberries'
   }
 
   // `it` is another Cypress method, and it's used to define individual tests within our groups
@@ -48,7 +47,7 @@ describe('ZipFoods', () => {
   })
 
   it('interacts with cart', () => {
-    cy.visit('/product/' + product.id);
+    cy.visit('/product/' + product.slug);
     cy.get('[data-test="add-to-cart-button"]').click();
     cy.contains('[data-test="cart-count"]', 1);
     cy.visit('/cart');

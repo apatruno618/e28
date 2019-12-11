@@ -4,13 +4,13 @@
 
     <div v-if='items.length == 0'>No items</div>
 
-    <ul data-test='cart-contents' v-else-if='products.length > 0' class='cleanList'>
+    <ul data-test='cart-contents' v-else-if='products' class='cleanList'>
       <!-- iterate through items data property -->
       <!-- for each, button can remove the item -->
-      <li v-for='item in items' :key='item.id'>
-        <!-- pass id for items -->
-        <button data-test='remove-from-cart-button' @click='removeFromCart(item.id)'>Remove</button>
-        {{ item.quantity }} x {{ getProductDetails(item.id)['name'] }}
+      <li v-for='item in items' :key='item.slug'>
+        <!-- pass slug for items -->
+        <button data-test='remove-from-cart-button' @click='removeFromCart(item.slug)'>Remove</button>
+        {{ item.quantity }} x {{ getProductDetails(item.slug)['name'] }}
       </li>
     </ul>
   </div>
@@ -28,24 +28,24 @@ export default {
     };
   },
   methods: {
-    getProductDetails(productId) {
-      return this.products.find(({ id }) => id === productId);
+    getProductDetails(productSlug) {
+      return this.$store.getters.getProductBySlug(productSlug);
     },
-    removeFromCart: function(productId) {
-      this.cart.remove(productId);
+    removeFromCart: function(productSlug) {
+      this.cart.remove(productSlug);
       // app.store.cartCount = this.cart.count();
       this.$store.commit('setCartCount', this.cart.count());
+    }
+  },
+  computed: {
+    products: function() {
+      return this.$store.state.products;
     }
   },
   mounted() {
     this.cart = new app.Cart();
     // items is dependent on cart data property so everything is reactive
     this.items = this.cart.getItems();
-  },
-  computed: {
-    products: function() {
-      return this.$store.state.products;
-    }
   }
 };
 </script>

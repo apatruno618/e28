@@ -6,6 +6,11 @@ import HomePage from './components/pages/HomePage.vue';
 import CategoriesPage from './components/pages/CategoriesPage.vue';
 import ProductPage from './components/pages/ProductPage.vue';
 import CartPage from './components/pages/CartPage.vue';
+import ProductCreatePage from './components/pages/ProductCreatePage.vue';
+
+/* eslint-disable no-unused-vars */
+const _ = require('lodash')
+/* eslint-enable no-unused-vars */
 
 import store from './store';
 
@@ -16,8 +21,10 @@ const routes = [
   // each route is an entry point into the application
   { path: '/', component: HomePage, name: 'home' },
   { path: '/products/', component: ProductsPage, name: 'products' },
-  //  :id identifies a route segment and can use regex if needed
-  { path: '/product/:id', component: ProductPage, name: 'product', props: true },
+  // we're purposely putting create comes first so it takes precedence over product/:slug
+  { path: '/products/create', component: ProductCreatePage, name: 'create' },
+  //  :slug identifies a route segment and can use regex if needed
+  { path: '/product/:slug', component: ProductPage, name: 'product', props: true },
   { path: '/categories', component: CategoriesPage, name: 'categories' },
   { path: '/cart', component: CartPage, name: 'cart' }
 ]

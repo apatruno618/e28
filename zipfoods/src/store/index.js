@@ -11,7 +11,7 @@ export default new Vuex.Store({
     state: {
         // initialized with default values
         cartCount: 0,
-        products: [],
+        products: null,
     },
     // methods that will manipulate state
     // should always be synchronous
@@ -27,6 +27,9 @@ export default new Vuex.Store({
         },
         setProducts(state, payload) {
             state.products = payload;
+        },
+        addProduct(state, payload) {
+            _.merge(state.products, payload)
         }
     },
     // where we'll set the initial state of products
@@ -36,16 +39,18 @@ export default new Vuex.Store({
         setProducts(context) {
             // where we actually make the axios call
             app.axios
-                .get(app.config.api + 'products')
+                .get(app.config.api + 'products.json')
+                // splice(1) gets rid of the null at the 0th position in products.json
                 .then(response => (context.commit('setProducts', response.data)));
         }
     },
     getters: {
-        getProductById(state) {
+        getProductBySlug(state) {
             // will return a method to retrieve input that the getter method needs
-            return function (id) {
+            return function (slug) {
                 // applying array filtering
-                return state.products.find(product => product.id == id);
+                // return state.products.find(product => product.slug == slug);
+                return _.find(state.products, { 'slug': slug })
             }
         }
     }

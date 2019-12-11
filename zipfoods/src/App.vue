@@ -33,7 +33,7 @@ export default {
     return {
       products: products,
       // src/App.vue data properties
-      links: ['home', 'products', 'categories', 'cart']
+      links: ['home', 'products', 'categories', 'cart', 'create']
     };
   },
   computed: {

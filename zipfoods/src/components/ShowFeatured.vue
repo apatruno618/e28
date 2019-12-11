@@ -15,14 +15,13 @@ export default {
   props: ['category'],
   computed: {
     featuredProducts: function() {
-      //   goes into each product, goes into category and sees if this is in the category
-      function isMatch(product) {
-        return product.categories.includes(this);
-      }
-      //   filters product data property using isMatch
-      //   returns an array of products that meets our criteria
-      return this.products.filter(isMatch, this.category);
+      return _.filter(this.products, product => {
+        return product.categories.includes(this.category);
+      });
     }
+    // products: function() {
+    //   return this.$store.state.products;
+    // }
   },
   data: function() {
     return {

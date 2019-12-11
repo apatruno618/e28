@@ -39,14 +39,14 @@
 ### Do you have any additional comments not covered in the above questions?
 
 + I noticed some commented out code that could have been removed prior to committing to github. For example, `// import ByCategory from './components/ByCategory.vue'` in `/main.js` and 
-        ```html
-                <!-- To do: find some image assets to illustrate posts.
-                <img
-                v-if='post.id'
-                class='blog-image'
-                :alt='"Image accompanying  " + post.title'
-                :src='"../assets/images/post/" + post.id + ".jpg"' -->
-        ```
+    ```html
+            <!-- To do: find some image assets to illustrate posts.
+            <img
+            v-if='post.id'
+            class='blog-image'
+            :alt='"Image accompanying  " + post.title'
+            :src='"../assets/images/post/" + post.id + ".jpg"' -->
+    ```
 in `/BlogPage.vue`.
 + I also noticed some uncommented code that I think was mistakinly left. For example `<hr>` in `/BlogPost.vue`.
 + The font size of the list of categories on the interface could be improved to be more in line with the rest of the application. 

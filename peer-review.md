@@ -15,12 +15,24 @@
 
 ### Were there any parts of the interface that you found confusing or unclear?
 
-* Although the `<title>` of the page is `myblog` having that also reflected in a header or tagline of the application would have made the application's purpose even clearer. I did not 
+* Although the `<title>` of the page is `myblog` having that also reflected in a header or tagline would have made the application's purpose even more clearer.
 
 ### Are there aspects of the code that you feel were not self-evident and would benefit from comments?
+
+
 
 ### Are there any parts of the code that you found interesting or taught you something new?
 
 ### Are there any best practices discussed in course material that you feel were not addressed in the code?
+
++ Yes, there were several best practices discussed in the course material that were not addressed in the code.
+⋅⋅1. One of best practices discussed and demonstrated in the course material that was not addressed in this code is in regard to code organization/structure and naming of components. In this case, the parent and child components are all saved within the same directory instead of being separated into their own `pages` directory. Likewise, the parent components that actually reflect a page are not consistently named as such. For example, the `BlogPosts.vue`, which is listed as `'homepage'` in `main.js` could be renamed to `HomePage.vue` or `BlogHome.vue`.
+⋅⋅2. There is no `/app.js` to act as the global include/config/state manager. The API link and axios should be refactored into this file instead by using: 
+
+        export const config = {
+            api: 'https://my-json-server.typicode.com/bibliodrone/e28-p3-api/posts'
+        }
+        export const axios = require('axios');
+⋅⋅3.
 
 ### Do you have any additional comments not covered in the above questions?

@@ -4,26 +4,24 @@
 + Reviwee's name: Gerald Walden
 + URL to reviewee's Github repo: *<https://github.com/bibliodrone/e28>*
 
-*Answer the following questions in regards to the student's project you are reviewing. Include context and code examples in your answers when relevant.*
-
-
 ### Are you able to produce any errors or unexpected results?
 
 + I was not able to produce any errors.
-+ All features worked as expected.
-+ The application was very intuitive and easy to navigate. 
++ All features work as expected.
++ The application is very intuitive and easy to navigate. 
 
 ### Were there any parts of the interface that you found confusing or unclear?
 
 + Although the `<title>` of the page is `myblog` having that also reflected in a header or tagline would have made the application's purpose even more clearer.
 
+
 ### Are there aspects of the code that you feel were not self-evident and would benefit from comments?
 
-
++ The `methods` in `/BlogPage.vue` would benefit from comments but in general, the code is sufficiently commented.
 
 ### Are there any parts of the code that you found interesting or taught you something new?
 
-
++ The existence and use of `!important` in `/BlogCategories.vue` is new to me. After reading up on what it does I've learned it has some pretty serious styling consequences!
 
 ### Are there any best practices discussed in course material that you feel were not addressed in the code?
 
@@ -40,11 +38,15 @@
 ### Do you have any additional comments not covered in the above questions?
 
 + I noticed some commented out code that could have been removed prior to committing to github. For example, `// import ByCategory from './components/ByCategory.vue'` in `/main.js` and 
-        <!--
-        To do: find some image assets to illustrate posts.
+```html
+        <!-- To do: find some image assets to illustrate posts.
         <img
         v-if='post.id'
         class='blog-image'
         :alt='"Image accompanying  " + post.title'
-        :src='"../assets/images/post/" + post.id + ".jpg"'
-        /> --> in `/BlogPage.vue`.
+        :src='"../assets/images/post/" + post.id + ".jpg"' -->
+```
+in `/BlogPage.vue`.
++ I also noticed some uncommented code that I think was mistakinly left. For example `<hr>` in `/BlogPost.vue`.
++ The font size of the list of categories on the interface could be improved to be more in line with the rest of the application. 
++ Overall easy to navigate interface, but the code could be improved and aligned with the best practices taught in lecture and notes.

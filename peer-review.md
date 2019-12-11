@@ -28,12 +28,12 @@
 + Yes, there were several best practices discussed in the course material that were not addressed in the code.
     1. One of best practices discussed and demonstrated in the course material that was not addressed in this code is in regard to code organization/structure and naming of components. In this case, the parent and child components are all saved within the same directory instead of being separated into their own `pages` directory. Likewise, the parent components that actually reflect a page are not consistently named as such. For example, the `BlogPosts.vue`, which is listed as `'homepage'` in `/main.js` could be renamed to `HomePage.vue` or `BlogHome.vue`.
     2. There is no `/app.js` to act as the global include/config/state manager. The API link and axios should be refactored into this file by using: 
-```js
-        export const config = {
-            api: 'https://my-json-server.typicode.com/bibliodrone/e28-p3-api/posts'
-        }
-        export const axios = require('axios');
-```
+        ```js
+                export const config = {
+                    api: 'https://my-json-server.typicode.com/bibliodrone/e28-p3-api/posts'
+                }
+                export const axios = require('axios');
+        ```
     3. `/Favorites.js` should be in `/src/` instead of `/src/components/` as it is not a component.
 
 ### Do you have any additional comments not covered in the above questions?

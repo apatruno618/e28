@@ -34,6 +34,7 @@
         }
         export const axios = require('axios');
 ```
+
     3. `/Favorites.js` should be in `/src/` instead of `/src/components/` as it is not a component.
 
 ### Do you have any additional comments not covered in the above questions?

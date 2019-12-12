@@ -31,7 +31,6 @@ export default {
   props: ['id'],
   data: function() {
     return {
-      // recipe: null,
       ingredients: null,
       directions: null
     };
@@ -54,16 +53,8 @@ export default {
     recipe: function() {
       return this.$store.getters.getRecipeById(this.id);
     }
-    // ingredients: function() {
-    //   return this.loadIngredients();
-    // },
-    // directions: function() {
-    //   return this.loadDirections();
-    // }
   },
   mounted() {
-    // app.axios.get(app.config.api + this.id).then(response => {
-    // this.recipe = response.data;
     this.loadIngredients();
     this.loadDirections();
   }

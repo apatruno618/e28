@@ -1,7 +1,8 @@
 // child component of ShowRecipes
 <template>
   <div class='recipe'>
-    <router-link :to='{ name: "recipe", params: {"id" : recipe.id }}'>
+    <!-- data-test is a custom attribute for test selector -->
+    <router-link data-test='recipe-link' :to='{ name: "recipe", params: {"id" : recipe.id }}'>
       <div class='recipe-name'>{{ recipe.name }}</div>
       <img
         class='recipe-thumb'

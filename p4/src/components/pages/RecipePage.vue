@@ -31,7 +31,7 @@ export default {
   props: ['id'],
   data: function() {
     return {
-      recipe: null,
+      // recipe: null,
       ingredients: null,
       directions: null
     };
@@ -46,14 +46,26 @@ export default {
     addToFavorites: function(recipeId) {
       let favorites = new app.Favorites();
       favorites.add(recipeId);
+
+      this.$store.commit('updateFavoritesCount', 1);
     }
   },
+  computed: {
+    recipe: function() {
+      return this.$store.getters.getRecipeById(this.id);
+    }
+    // ingredients: function() {
+    //   return this.loadIngredients();
+    // },
+    // directions: function() {
+    //   return this.loadDirections();
+    // }
+  },
   mounted() {
-    app.axios.get(app.config.api + this.id).then(response => {
-      this.recipe = response.data;
-      this.loadIngredients();
-      this.loadDirections();
-    });
+    // app.axios.get(app.config.api + this.id).then(response => {
+    // this.recipe = response.data;
+    this.loadIngredients();
+    this.loadDirections();
   }
 };
 </script>

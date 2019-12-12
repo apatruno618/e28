@@ -6,6 +6,8 @@ import CategoriesPage from './components/pages/CategoriesPage.vue';
 import RecipesPage from './components/pages/RecipesPage.vue';
 import RecipePage from './components/pages/RecipePage.vue';
 import FavoritesPage from './components/pages/FavoritesPage.vue';
+// makes store object available
+import store from './store'
 
 Vue.use(VueRouter);
 Vue.config.productionTip = false
@@ -26,5 +28,7 @@ const router = new VueRouter({
 
 new Vue({
   router: router,
+  // injects store capabilities to all child components
+  store: store,
   render: h => h(App),
 }).$mount('#app')

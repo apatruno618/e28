@@ -4,7 +4,9 @@
     <div v-if='items.length == 0'>No items</div>
     <ul v-else-if='recipes.length > 0'>
       <li v-for='item in items' :key='item.id'>
-        <div>{{ getRecipeDetails(item.id)['name'] }}</div>
+        <!-- <div>{{ getRecipeDetails(item.id)['name'] }}</div> -->
+        <button @click='removeFromFavorites(item.id)'>Remove</button>
+        {{ getRecipeDetails(item.id)['name'] }}
       </li>
     </ul>
   </div>
@@ -18,21 +20,30 @@ export default {
   data: function() {
     return {
       items: [],
-      favorites: null,
-      recipes: []
+      favorites: null
+      // recipes: []
     };
   },
   methods: {
     getRecipeDetails(recipeId) {
       return this.recipes.find(({ id }) => id === recipeId);
+    },
+    removeFromFavorites: function(recipeId) {
+      this.favorites.remove(recipeId);
+      // app.store.favoritesCount = this.favorites.count();
+      this.$store.commit('updateFavoritesCount', -1);
+    }
+  },
+  computed: {
+    recipes: function() {
+      return this.$store.state.recipes;
     }
   },
   mounted() {
     this.favorites = new app.Favorites();
     this.items = this.favorites.getItems();
-    app.axios.get(app.config.api).then(response => {
-      this.recipes = response.data;
-    });
+    // app.axios.get(app.config.api).then(response => {
+    //   this.recipes = response.data;
   }
 };
 </script>

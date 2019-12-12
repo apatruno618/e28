@@ -17,6 +17,17 @@ export default class Favorites {
     }
 
     /**
+     * Returns how many total items are in the cart
+     */
+    count() {
+        let sum = 0;
+        for (let key of Object.keys(this.items)) {
+            sum += this.items[key].quantity;
+        }
+        return sum;
+    }
+
+    /**
      * Updates bookmark in localstorage
      */
     update() {
@@ -39,6 +50,20 @@ export default class Favorites {
         }
         // persists to local storage
         this.update();
+    }
+
+    /**
+     * Remove an item from items via slug
+     */
+    remove(id) {
+        let item = this.getItem(id);
+
+        let itemIndex = this.items.indexOf(item);
+
+        if (item) {
+            this.items.splice(itemIndex, 1);
+            this.update();
+        }
     }
 
     /**

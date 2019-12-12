@@ -6,7 +6,10 @@
     <nav class='topnav'>
       <ul>
         <li v-for='link in links' :key='link'>
-          <router-link exact :to='{ name: link }'>{{ link }}</router-link>
+          <router-link exact :to='{ name: link }'>
+            {{ link }}
+            <span v-if='link == "favorites"'>({{ favoritesCount }})</span>
+          </router-link>
         </li>
       </ul>
     </nav>
@@ -15,12 +18,27 @@
 </template>
 
 <script>
+import * as app from './app.js';
+
 export default {
   name: 'app',
   data: function() {
     return {
       links: ['home', 'recipes', 'categories', 'favorites']
     };
+  },
+  computed: {
+    favoritesCount: function() {
+      return this.$store.state.favoritesCount;
+    }
+  },
+  mounted() {
+    this.favorites = new app.Favorites();
+    // console.log(this.$store.state.recipes);
+    this.$store.commit('setFavoritesCount', this.favorites.count());
+
+    // will dispatch the action that will make the server request to get the recipes
+    this.$store.dispatch('setRecipes');
   }
 };
 </script>

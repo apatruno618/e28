@@ -32,17 +32,18 @@ export default new Vuex.Store({
             app.axios
                 .get(app.config.api)
                 .then(response => {
-                    context.commit('setRecipes', response.data.splice(1));
+                    context.commit('setRecipes', response.data);
                 });
         }
     },
     // retrieves state in a filtered way
     getters: {
         // number of arguments we will pass varies so will return a method for the input
-        getRecipeById(state) {
+        getRecipeBySlug(state) {
             // this is where we can pass multiple arguments
-            return function (id) {
-                return state.recipes.find(recipe => recipe.id == id)
+            return function (slug) {
+                return _.find(state.recipes, { 'slug': slug })
+                // return state.recipes.find(recipe => recipe.slug == slug)
             }
         }
     }

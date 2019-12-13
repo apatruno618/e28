@@ -2,7 +2,7 @@
   <div>
     <h2>All Recipes</h2>
     <div id='recipes' class='grid-container grid-container--fit'>
-      <show-recipe v-for='recipe in recipes' :key='recipe.id' :recipe='recipe'></show-recipe>
+      <show-recipe v-for='recipe in recipes' :key='recipe.slug' :recipe='recipe'></show-recipe>
     </div>
   </div>
 </template>

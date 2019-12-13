@@ -2,7 +2,7 @@
   <div>
     <h2>Categories</h2>
     <ul>
-      <li v-for='(category, id) in categories' :key='id'>{{ category }}</li>
+      <li v-for='(category, slug) in categories' :key='slug'>{{ category }}</li>
     </ul>
   </div>
 </template>

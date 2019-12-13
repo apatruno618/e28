@@ -32,7 +32,7 @@ export default {
     },
     removeFromFavorites: function(recipeId) {
       this.favorites.remove(recipeId);
-      this.$store.commit('updateFavoritesCount', -1);
+      this.$store.commit('setFavoritesCount', this.favorites.count());
     }
   },
   computed: {

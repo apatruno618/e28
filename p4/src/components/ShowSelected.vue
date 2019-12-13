@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul v-if='recipes'>
-      <li v-for='recipe in selectedCategory' :key='recipe.id'>{{ recipe.name }}</li>
+      <li v-for='recipe in selectedCategory' :key='recipe.slug'>{{ recipe.name }}</li>
     </ul>
   </div>
 </template>

@@ -24,6 +24,7 @@ export default {
   name: 'app',
   data: function() {
     return {
+      // add 'create' when component is created
       links: ['home', 'recipes', 'categories', 'favorites']
     };
   },
@@ -34,8 +35,9 @@ export default {
   },
   mounted() {
     this.favorites = new app.Favorites();
-    // console.log(this.$store.state.recipes);
+    // sets store from local storage
     this.$store.commit('setFavoritesCount', this.favorites.count());
+    // console.log(this.$store.state.favoritesCount);
 
     // will dispatch the action that will make the server request to get the recipes
     this.$store.dispatch('setRecipes');

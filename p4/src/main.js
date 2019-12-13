@@ -6,6 +6,11 @@ import CategoriesPage from './components/pages/CategoriesPage.vue';
 import RecipesPage from './components/pages/RecipesPage.vue';
 import RecipePage from './components/pages/RecipePage.vue';
 import FavoritesPage from './components/pages/FavoritesPage.vue';
+// import RecipeCreatePage from './components/pages/RecipeCreatePage.vue';
+
+const _ = require('lodash')
+
+
 // makes store object available
 import store from './store'
 
@@ -15,7 +20,9 @@ Vue.config.productionTip = false
 const routes = [
   { path: '/', component: HomePage, name: 'home' },
   { path: '/recipes', component: RecipesPage, name: 'recipes' },
-  { path: '/recipe/:id', component: RecipePage, name: 'recipe', props: true },
+  // create takes precendence
+  // { path: '/recipe/create', component: RecipeCreatePage, name: 'create' },
+  { path: '/recipe/:slug', component: RecipePage, name: 'recipe', props: true },
   { path: '/categories', component: CategoriesPage, name: 'categories' },
   { path: '/favorites', component: FavoritesPage, name: 'favorites' }
 ]
@@ -32,3 +39,6 @@ new Vue({
   store: store,
   render: h => h(App),
 }).$mount('#app')
+
+
+

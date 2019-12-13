@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h2 class='a'>{{ selectedCategory }} recipes</h2>
+    <h2 class='a'>Welcome!</h2>
+    <div>The holidays are meant for spending time with friends and family but if you're hosting, things can get pretty stressful.</div>
     <show-selected :category='selectedCategory'></show-selected>
   </div>
 </template>

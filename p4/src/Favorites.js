@@ -35,16 +35,16 @@ export default class Favorites {
     }
 
     /**
-     * Add a new item of the given recipeId
+     * Add a new item of the given recipeSlug
      */
-    add(recipeId) {
+    add(recipeSlug) {
 
         // First see if recipe is already present
-        let item = this.getItem(recipeId)
+        let item = this.getItem(recipeSlug)
 
         if (!item) {
             this.items.push({
-                id: recipeId
+                slug: recipeSlug
             });
 
         }
@@ -55,8 +55,8 @@ export default class Favorites {
     /**
      * Remove an item from items via slug
      */
-    remove(id) {
-        let item = this.getItem(id);
+    remove(slug) {
+        let item = this.getItem(slug);
 
         let itemIndex = this.items.indexOf(item);
 
@@ -67,10 +67,11 @@ export default class Favorites {
     }
 
     /**
-     * Get an item from items via recipeId
+     * Get an item from items via recipeSlug
      * Returns null if recipe does not exist in items
      */
-    getItem(recipeId) {
-        return this.items.find(({ id }) => id === recipeId) || null;
+    getItem(recipeSlug) {
+        // items in favorites are an array so we can still use find
+        return this.items.find(({ slug }) => slug === recipeSlug) || null;
     }
 }

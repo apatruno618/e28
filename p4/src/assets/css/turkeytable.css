@@ -39,6 +39,10 @@ body {background-color: #d1ba7b;}
     width: 400px;
 }
 
+.topnav {
+    list-style-type: none;
+}
+
 ul {
     list-style-type: none;
 }

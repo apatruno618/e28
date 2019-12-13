@@ -6,13 +6,14 @@ import CategoriesPage from './components/pages/CategoriesPage.vue';
 import RecipesPage from './components/pages/RecipesPage.vue';
 import RecipePage from './components/pages/RecipePage.vue';
 import FavoritesPage from './components/pages/FavoritesPage.vue';
-// import RecipeCreatePage from './components/pages/RecipeCreatePage.vue';
+import RecipeCreatePage from './components/pages/RecipeCreatePage.vue';
 
+/* eslint-disable no-unused-vars */
 const _ = require('lodash')
-
+/* eslint-enable no-unused-vars */
 
 // makes store object available
-import store from './store'
+import store from './store';
 
 Vue.use(VueRouter);
 Vue.config.productionTip = false
@@ -21,7 +22,7 @@ const routes = [
   { path: '/', component: HomePage, name: 'home' },
   { path: '/recipes', component: RecipesPage, name: 'recipes' },
   // create takes precendence
-  // { path: '/recipe/create', component: RecipeCreatePage, name: 'create' },
+  { path: '/recipe/create', component: RecipeCreatePage, name: 'create' },
   { path: '/recipe/:slug', component: RecipePage, name: 'recipe', props: true },
   { path: '/categories', component: CategoriesPage, name: 'categories' },
   { path: '/favorites', component: FavoritesPage, name: 'favorites' }

@@ -25,7 +25,7 @@ export default {
   data: function() {
     return {
       // add 'create' when component is created
-      links: ['home', 'recipes', 'categories', 'favorites']
+      links: ['home', 'recipes', 'categories', 'favorites', 'create']
     };
   },
   computed: {

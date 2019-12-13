@@ -2,14 +2,14 @@
   <div>
     <h1>My Favorites</h1>
     <div v-if='items.length == 0'>No items</div>
-    <ul data-test='favorites-contents' v-else-if='recipes.length > 0'>
-      <li v-for='item in items' :key='item.id'>
-        <!-- <div>{{ getRecipeDetails(item.id)['name'] }}</div> -->
+    <ul data-test='favorites-contents' v-else-if='recipes'>
+      <li v-for='item in items' :key='item.slug'>
+        <!-- <div>{{ getRecipeDetails(item.slug)['name'] }}</div> -->
         <button
           data-test='remove-from-favorites-button'
-          @click='removeFromFavorites(item.id)'
+          @click='removeFromFavorites(item.slug)'
         >Remove</button>
-        {{ getRecipeDetails(item.id)['name'] }}
+        {{ getRecipeDetails(item.slug)['name'] }}
       </li>
     </ul>
   </div>
@@ -27,11 +27,12 @@ export default {
     };
   },
   methods: {
-    getRecipeDetails(recipeId) {
-      return this.recipes.find(({ id }) => id === recipeId);
+    getRecipeDetails(recipeSlug) {
+      // return this.recipes.find(({ id }) => id === recipeId);
+      return this.$store.getters.getRecipeBySlug(recipeSlug);
     },
-    removeFromFavorites: function(recipeId) {
-      this.favorites.remove(recipeId);
+    removeFromFavorites: function(recipeSlug) {
+      this.favorites.remove(recipeSlug);
       this.$store.commit('setFavoritesCount', this.favorites.count());
     }
   },

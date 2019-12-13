@@ -10,7 +10,7 @@ export default new Vuex.Store({
     // equivalent to data property in vue instance
     state: {
         favoritesCount: 0,
-        recipes: []
+        recipes: null
     },
     // synchronous requests
     mutations: {
@@ -30,7 +30,7 @@ export default new Vuex.Store({
         setRecipes(context) {
             // where the axios call is made
             app.axios
-                .get(app.config.api)
+                .get(app.config.api + 'recipes.json')
                 .then(response => {
                     context.commit('setRecipes', response.data);
                 });

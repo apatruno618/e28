@@ -1,6 +1,6 @@
 {
-    "recipes": [
-        {
+    "recipes": {
+        "1": {
             "id": 1,
             "name": "Perfect Roast Turkey",
             "level": "Intermediate",
@@ -31,7 +31,7 @@
                 "non-vegan"
             ]
         },
-        {
+        "2": {
             "id": 2,
             "name": "The Best Sweet Potato Casserole",
             "level": "Easy",
@@ -62,7 +62,7 @@
                 "non-vegan"
             ]
         },
-        {
+        "3": {
             "id": 3,
             "name": "Balsamic-Roasted Brussels Sprouts",
             "level": "Easy",
@@ -91,7 +91,7 @@
                 "non-vegan"
             ]
         },
-        {
+        "4": {
             "id": 4,
             "name": "Butternut Squash Soup",
             "level": "Intermediate",
@@ -122,7 +122,7 @@
                 "non-vegan"
             ]
         },
-        {
+        "5": {
             "id": 5,
             "name": "Roasted Butternut Squash Salad with Warm Cider Vinaigrette",
             "level": "Easy",
@@ -154,7 +154,7 @@
                 "non-vegan"
             ]
         },
-        {
+        "6": {
             "id": 6,
             "name": "Good Eats Roast Turkey",
             "level": "Easy",
@@ -194,7 +194,7 @@
                 "non-vegan"
             ]
         },
-        {
+        "7": {
             "id": 7,
             "name": "Pumpkin Gingersnap Cheesecake with Salted Caramel Sauce",
             "level": "Intermediate",
@@ -236,7 +236,7 @@
                 "non-vegan"
             ]
         },
-        {
+        "8": {
             "id": 8,
             "name": "Perfect Cranberry Sauce",
             "level": "Easy",
@@ -262,7 +262,7 @@
                 "vegan"
             ]
         },
-        {
+        "9": {
             "id": 9,
             "name": "Mashed Potatoes",
             "level": "Easy",
@@ -291,7 +291,7 @@
                 "non-vegan"
             ]
         },
-        {
+        "10": {
             "id": 10,
             "name": "Wild Mushroom Gravy",
             "level": "Easy",
@@ -320,7 +320,7 @@
                 "vegan"
             ]
         },
-        {
+        "11": {
             "id": 11,
             "name": "No-Bake Pumpkin Tarts",
             "level": "Intermediate",
@@ -353,7 +353,7 @@
                 "vegan"
             ]
         },
-        {
+        "12": {
             "id": 12,
             "name": "Tofurky Roast",
             "level": "Intermediate",
@@ -387,7 +387,7 @@
                 "vegan"
             ]
         },
-        {
+        "13": {
             "id": 13,
             "name": "Lentil & Sweet Potato Shepherd’s Pie",
             "level": "Easy",
@@ -421,5 +421,5 @@
                 "vegan"
             ]
         }
-    ]
+    }
 }

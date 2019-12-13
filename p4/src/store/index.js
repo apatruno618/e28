@@ -32,7 +32,7 @@ export default new Vuex.Store({
             app.axios
                 .get(app.config.api)
                 .then(response => {
-                    context.commit('setRecipes', response.data);
+                    context.commit('setRecipes', response.data.splice(1));
                 });
         }
     },

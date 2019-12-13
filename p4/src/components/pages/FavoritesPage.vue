@@ -2,10 +2,13 @@
   <div>
     <h1>My Favorites</h1>
     <div v-if='items.length == 0'>No items</div>
-    <ul v-else-if='recipes.length > 0'>
+    <ul data-test='favorites-contents' v-else-if='recipes.length > 0'>
       <li v-for='item in items' :key='item.id'>
         <!-- <div>{{ getRecipeDetails(item.id)['name'] }}</div> -->
-        <button @click='removeFromFavorites(item.id)'>Remove</button>
+        <button
+          data-test='remove-from-favorites-button'
+          @click='removeFromFavorites(item.id)'
+        >Remove</button>
         {{ getRecipeDetails(item.id)['name'] }}
       </li>
     </ul>

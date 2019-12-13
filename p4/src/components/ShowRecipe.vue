@@ -3,7 +3,7 @@
   <div class='recipe'>
     <!-- data-test is a custom attribute for test selector -->
     <router-link data-test='recipe-link' :to='{ name: "recipe", params: {"id" : recipe.id }}'>
-      <div class='recipe-name'>{{ recipe.name }}</div>
+      <div data-test='recipe-name' class='recipe-name'>{{ recipe.name }}</div>
       <img
         class='recipe-thumb'
         :alt='" Recipe image of" + recipe.name'

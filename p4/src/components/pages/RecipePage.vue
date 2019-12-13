@@ -1,6 +1,6 @@
 <template>
   <div id='recipe-page' v-if='recipe'>
-    <h1 class='recipe-name'>{{ recipe.name }}</h1>
+    <h1 data-test='recipe-name' class='recipe-name'>{{ recipe.name }}</h1>
     <img
       class='recipe-thumb'
       :alt='" Recipe image of" + recipe.name'
@@ -17,7 +17,7 @@
     <ol>
       <li v-for='(direction, id) in directions' :key='id'>{{ direction }}</li>
     </ol>
-    <button @click='addToFavorites(recipe.id)'>Add to Favorites</button>
+    <button data-test='add-to-favorites-button' @click='addToFavorites(recipe.id)'>Add to Favorites</button>
     <br />
     <router-link exact :to='"/recipes"'>&larr; Return to all recipes</router-link>
   </div>

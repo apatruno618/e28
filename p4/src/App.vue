@@ -5,7 +5,7 @@
     <img id='logo' alt='TurkeyTable logo' src='./assets/turkeytable-logo.png' />
     <p>
     <nav>
-      <ul class='topnavul'>
+      <ul>
         <li class='topnavli' v-for='link in links' :key='link'>
           <router-link exact :to='{ name: link }'>
             {{ link }}

@@ -6,7 +6,7 @@
       <br />TurkeyTable is here to help ease the burden of figuring out what to cook.
       <br />We have recipes for the meat-lovers, the vegans and your great uncle with the wicked sweet tooth.
     </h4>
-    Here's some of our {{ selectedCategory }} recipes:
+    <b>Here's some of our favorite {{ selectedCategory }} recipes, for instance:</b>
     <show-selected :category='selectedCategory'></show-selected>
   </div>
 </template>

@@ -3,9 +3,10 @@
     <h1>TurkeyTable</h1>
     <p>Delicious Thanksgiving recipes designed to taste even better the next day</p>
     <img id='logo' alt='TurkeyTable logo' src='./assets/turkeytable-logo.png' />
-    <nav class='topnav'>
-      <ul>
-        <li v-for='link in links' :key='link'>
+    <p>
+    <nav>
+      <ul class='topnavul'>
+        <li class='topnavli' v-for='link in links' :key='link'>
           <router-link exact :to='{ name: link }'>
             {{ link }}
             <span v-if='link == "favorites"'>({{ favoritesCount }})</span>
@@ -13,6 +14,7 @@
         </li>
       </ul>
     </nav>
+    </p>
     <router-view></router-view>
   </div>
 </template>

@@ -7,29 +7,21 @@
 </template>
 
 <script>
-import * as app from './../app.js';
-
 export default {
   name: 'ShowSelected',
   props: ['category'],
   data: function() {
-    return {
-      recipes: null
-    };
+    return {};
   },
   computed: {
     selectedCategory: function() {
-      function isMatch(recipe) {
-        return recipe.categories.includes(this);
-      }
-      // returns an array of recipes of just the recipes that meet criteria
-      return this.recipes.filter(isMatch, this.category);
+      return _.filter(this.recipes, recipe => {
+        return recipe.categories.includes(this.category);
+      });
+    },
+    recipes: function() {
+      return this.$store.state.recipes;
     }
-  },
-  mounted() {
-    app.axios.get(app.config.api).then(response => {
-      this.recipes = response.data;
-    });
   }
 };
 </script>

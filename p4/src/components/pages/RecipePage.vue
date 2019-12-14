@@ -28,40 +28,33 @@
 
 <script>
 import * as app from './../../app.js';
-// import Favorites from './../../../Favorites.js';
 
 export default {
   name: 'RecipePage',
   props: ['slug'],
   data: function() {
-    return {
-      ingredients: null,
-      directions: null
-    };
+    return {};
   },
   methods: {
-    loadIngredients: function() {
-      this.ingredients = this.recipe.ingredients;
-    },
-    loadDirections: function() {
-      this.directions = this.recipe.directions;
-    },
     addToFavorites: function(recipeId) {
       let favorites = new app.Favorites();
       favorites.add(recipeId);
 
-      this.$store.commit('setFavoritesCount', this.favorites.count());
+      this.$store.commit('setFavoritesCount', favorites.count());
     }
   },
   computed: {
     recipe: function() {
       return this.$store.getters.getRecipeBySlug(this.slug);
+    },
+    ingredients: function() {
+      return this.recipe.ingredients;
+    },
+    directions: function() {
+      return this.recipe.directions;
     }
   },
-  mounted() {
-    this.loadIngredients();
-    this.loadDirections();
-  }
+  mounted() {}
 };
 </script>
 

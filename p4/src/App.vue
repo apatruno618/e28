@@ -3,7 +3,7 @@
     <h1>TurkeyTable</h1>
     <p>Delicious Thanksgiving recipes designed to taste even better the next day</p>
     <img id='logo' alt='TurkeyTable logo' src='./assets/turkeytable-logo.png' />
-    <p>
+
     <nav>
       <ul>
         <li class='topnavli' v-for='link in links' :key='link'>
@@ -14,7 +14,7 @@
         </li>
       </ul>
     </nav>
-    </p>
+
     <router-view></router-view>
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
   data: function() {
     return {
       // add 'create' when component is created
-      links: ['home', 'recipes', 'categories', 'favorites', 'create']
+      links: ['home', 'categories', 'recipes', 'favorites', 'create']
     };
   },
   computed: {

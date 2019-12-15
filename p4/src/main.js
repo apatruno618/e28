@@ -20,11 +20,11 @@ Vue.config.productionTip = false
 
 const routes = [
   { path: '/', component: HomePage, name: 'home' },
+  { path: '/categories', component: CategoriesPage, name: 'categories' },
   { path: '/recipes', component: RecipesPage, name: 'recipes' },
   // create takes precendence
   { path: '/recipe/create', component: RecipeCreatePage, name: 'create' },
   { path: '/recipe/:slug', component: RecipePage, name: 'recipe', props: true },
-  { path: '/categories', component: CategoriesPage, name: 'categories' },
   { path: '/favorites', component: FavoritesPage, name: 'favorites' }
 ]
 

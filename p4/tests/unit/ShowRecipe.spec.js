@@ -8,11 +8,11 @@ describe('ShowRecipe.vue', () => {
   it('shows a recipe', () => {
 
     let recipe = {
-      id: 1,
-      name: 'Perfect Roast Turkey',
-      level: 'Intermediate',
-      time: '3 hr 20 min',
-      yield: '8 servings'
+      "slug": "perfect-roast-rurkey",
+      "name": "Perfect Roast Turkey",
+      "level": "Intermediate",
+      "time": "3 hr 20 min",
+      "yield": "8 servings"
     }
     const wrapper = shallowMount(ShowRecipe, {
       propsData: { recipe },

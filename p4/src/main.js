@@ -7,14 +7,19 @@ import RecipesPage from './components/pages/RecipesPage.vue';
 import RecipePage from './components/pages/RecipePage.vue';
 import FavoritesPage from './components/pages/FavoritesPage.vue';
 import RecipeCreatePage from './components/pages/RecipeCreatePage.vue';
+import Vuelidate from 'vuelidate'
 
+// eslint compiler looks at these comments
+// it will ignore no-unused-vars
 /* eslint-disable no-unused-vars */
 const _ = require('lodash')
+// then will re-enable
 /* eslint-enable no-unused-vars */
 
 // makes store object available
 import store from './store';
 
+Vue.use(Vuelidate)
 Vue.use(VueRouter);
 Vue.config.productionTip = false
 

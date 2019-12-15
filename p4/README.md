@@ -11,5 +11,21 @@
 
 
 ## Outside resources
+
+
+
+*Any instructions/notes in italics should be removed from the template before submitting.* 
+
+# Project 4
++ By: Anna Patruno
++ Production URL: <http://p4.yourdomain.com>
+
+## Improvements based on P3 peer review feedback
+*Provide a summary of improvements made based on P3 peer review feedback; if there was no actionable feedback, leave this blank.*
+
+## Outside resources
 + [Primary source of recipes](https://www.foodnetwork.com/recipes/photos/top-50-thanksgiving-recipes)
 + [Source of vegan-specific recipes](https://www.delish.com/holiday-recipes/thanksgiving/g3016/vegan-thanksgiving-recipes/)
+
+## Notes for instructor
+*Any notes for me to refer to while grading; if none, omit this section.*

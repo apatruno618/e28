@@ -6,11 +6,11 @@ import RecipesPage from '@/components/pages/RecipesPage.vue'
 describe('RecipesPage.vue', () => {
 
     let recipe = {
-        "slug": "butternut-squash-soup",
-        "name": "Butternut Squash Soup",
-        "level": "Intermediate",
-        "time": "1 hr",
-        "yield": "6 servings"
+        slug: "butternut-squash-soup",
+        name: "Butternut Squash Soup",
+        level: "Intermediate",
+        time: "1 hr",
+        yield: "6 servings"
     }
 
     it('shows all recipes', () => {

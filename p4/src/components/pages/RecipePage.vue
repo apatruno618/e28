@@ -36,9 +36,9 @@ export default {
     return {};
   },
   methods: {
-    addToFavorites: function(recipeId) {
+    addToFavorites: function(recipeSlug) {
       let favorites = new app.Favorites();
-      favorites.add(recipeId);
+      favorites.add(recipeSlug);
 
       this.$store.commit('setFavoritesCount', favorites.count());
     }

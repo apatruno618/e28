@@ -8,10 +8,23 @@ body {
     grid-template-rows: 1fr auto;
     background-color: #d1ba7b;
 }
-footer {
-    grid-row-start: 2;
-    grid-row-end: 3;
-    padding: 20px
+
+#app {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#footer {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: right;
 }
 
 #logo {
@@ -46,13 +59,6 @@ footer {
     width: 400px;
 }
 
-/* .topnavul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-} */
-
 .topnavli {
     display: inline;
     padding: 5px;
@@ -64,4 +70,8 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+ol {
+    text-align: left;
 }

@@ -4,7 +4,6 @@
     <div v-if='items.length == 0'>No items</div>
     <ul data-test='favorites-contents' v-else-if='recipes'>
       <li v-for='item in items' :key='item.slug'>
-        <!-- <div>{{ getRecipeDetails(item.slug)['name'] }}</div> -->
         <button
           data-test='remove-from-favorites-button'
           @click='removeFromFavorites(item.slug)'
@@ -28,7 +27,6 @@ export default {
   },
   methods: {
     getRecipeDetails(recipeSlug) {
-      // return this.recipes.find(({ id }) => id === recipeId);
       return this.$store.getters.getRecipeBySlug(recipeSlug);
     },
     removeFromFavorites: function(recipeSlug) {

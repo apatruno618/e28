@@ -4,16 +4,12 @@
     <!-- prevent overrides default behavior that a form has in a page 
     which is to submit form to server-->
     <form @submit.prevent='handleSubmit'>
-      <div class='form-group'>
+      <!-- recipe slug -->
+      <div>
         <label for='name'>URL</label>
         <!-- unique identifier in form of slug -->
         <!-- a slug is a simplified url-friendly version of a string -->
-        <input
-          type='text'
-          :class='{ "form-input-error": $v.recipe.slug.$error}'
-          id='slug'
-          v-model='$v.recipe.slug.$model'
-        />
+        <input type='text' id='slug' v-model='$v.recipe.slug.$model' />
         <!-- if there are any errors, this will show -->
         <div v-if='$v.recipe.slug.$error'>
           <div class='form-feedback-error' v-if='!$v.recipe.slug.required'>recipe URL required.</div>
@@ -24,51 +20,73 @@
           <div
             class='form-feedback-error'
             v-if='!$v.recipe.slug.doesNotExist'
-          >This URL not available.</div>
+          >This URL is not available.</div>
         </div>
         <small class='form-help'>Min: 4</small>
       </div>
 
-      <div class='form-group'>
+      <!-- recipe name -->
+      <div>
         <label for='name'>Name</label>
-        <input
-          type='text'
-          :class='{ "form-input-error": $v.recipe.name.$error}'
-          id='name'
-          v-model='$v.recipe.name.$model'
-        />
+        <input type='text' id='name' v-model='$v.recipe.name.$model' />
         <div v-if='$v.recipe.name.$error'>
           <div class='form-feedback-error' v-if='!$v.recipe.name.required'>recipe name is required</div>
         </div>
       </div>
 
-      <div class='form-group'>
-        <label for='description'>Description</label>
-        <textarea id='description' v-model='recipe.description'></textarea>
+      <!-- recipe level -->
+      <div>
+        <label for='level'>Level</label>
+        <br />
+        <select name='level' v-model='$v.recipe.level.$model'>
+          <option value='easy'>Easy</option>
+          <option value='intermediate'>Intermediate</option>
+          <option value='difficult'>Difficult</option>
+        </select>
       </div>
 
-      <div class='form-group'>
-        <label for='price'>Price</label>
-        <input type='text' id='price' v-model='recipe.price' />
+      <!-- recipe time -->
+      <div>
+        <label for='time'>Time</label>
+        <input type='text' id='time' v-model='$v.recipe.time.$model' />
+        <div v-if='$v.recipe.time.$error'>
+          <div class='form-feedback-error' v-if='!$v.recipe.time.required'>recipe time is required</div>
+        </div>
       </div>
 
-      <div class='form-group'>
-        <label for='weight'>Weight</label>
-        <input type='text' id='weight' v-model='recipe.weight' />
-        <small class='form-help'>Decimal value in lbs.</small>
+      <!-- recipe yield -->
+      <div>
+        <label for='yield'>Yield</label>
+        <input type='text' id='yield' v-model='$v.recipe.yield.$model' />
+        <div v-if='$v.recipe.yield.$error'>
+          <div class='form-feedback-error' v-if='!$v.recipe.yield.required'>recipe yield is required</div>
+        </div>
       </div>
 
-      <div class='form-group'>
+      <!-- recipe special equipment -->
+      <div>
+        <label for='special_equipment'>Yield</label>
+        <input type='text' id='special-equipment' v-model='recipe.special_equipment' />
+      </div>
+
+      <!-- recipe ingredients -->
+      <div>
+        <label for='ingredients'>Ingredients</label>
+        <input type='text' id='ingredients' v-model='recipe.ingredients' />
+        <small id='ingredientsHelp' class='form-help'>Comma separated</small>
+      </div>
+      <!-- recipe directions -->
+      <div>
+        <label for='directions'>Directions</label>
+        <br />
+        <textarea id='directions' v-model='recipe.directions'></textarea>
+      </div>
+      <!-- recipe categories -->
+      <div>
         <label for='categories'>Categories</label>
 
         <input type='text' id='categories' v-model='recipe.categories' />
         <small id='categoriesHelp' class='form-help'>Comma separated</small>
-      </div>
-
-      <div class='form-group'>
-        <label class='form-checkbox-label'>
-          <input type='checkbox' v-model='recipe.perishable' /> Perishable
-        </label>
       </div>
 
       <button type='submit'>Add recipe</button>
@@ -84,45 +102,34 @@ import * as app from './../../app.js';
 import { required, minLength } from 'vuelidate/lib/validators';
 
 let recipe = {};
-// If in dev mode, we'll pre-fill the recipe to make demo/testing easier
+// If in dev mode, we pre-fill the recipe to make demo/testing easier
 if (process.env.NODE_ENV == 'development') {
   recipe = {
-    slug: 'indiana-gourmet-kettlecorn-popcorn',
-    name: 'Indiana Gourmet Kettlecorn Popcorn',
-    description:
-      'We combine the finest popping corn, the right amount of salt and pure sugar cane, then we heat it just right, so that the sugar is melting just as the corn starts to pop—leaving every piece with a thin shell of salty sweetness. Be careful, it’s hard to eat just one bite of our handcrafted, gluten free Original Kettlecorn. Munch Better.',
-    price: 4.49,
-    weight: 0.44,
-    perishable: false,
-    categories: ['snacks', 'gluten-free']
-    // slug: 'annas-baked-ziti',
-    // name: 'Anna's Baked Ziti',
-    // level: 'easy',
-    // time: '1hr 30 min',
-    // yield: '10 servings',
-    // special_equipment: null,
-    // ingredients: ['ziti pasta', 'tomato sauce', 'mozzarella cheese'],
-    // directions: ['Make the sauce', 'Make the pasta.', 'Mix the pasta and sauce and bake.' ],
-    // categories: ['entree', 'non-vegan']
+    slug: 'annas-baked-ziti',
+    name: "Anna's Baked Ziti",
+    level: 'easy',
+    time: '1hr 30 min',
+    yield: '10 servings',
+    special_equipment: 'baking dish',
+    ingredients: ['ziti pasta', 'tomato sauce', 'mozzarella cheese'],
+    directions: [
+      'Make the sauce',
+      'Make the pasta.',
+      'Mix the pasta and sauce and bake.'
+    ],
+    categories: ['entree', 'non-vegan']
   };
 } else {
   recipe = {
     slug: '',
     name: '',
-    description: '',
-    price: '',
-    weight: '',
-    perishable: false,
+    level: '',
+    time: '',
+    yield: '',
+    special_equipment: null,
+    ingredients: [],
+    directions: [],
     categories: []
-    // slug: '',
-    // name: '',
-    // level: '',
-    // time: '',
-    // yield: '',
-    // special_equipment: null,
-    // ingredients: [],
-    // directions: [],
-    // categories: []
   };
 }
 export default {
@@ -145,9 +152,13 @@ export default {
           return !this.$store.getters.getRecipeBySlug(value);
         }
       },
-      name: {
-        required
-      }
+      name: { required },
+      level: { required },
+      time: { required },
+      yield: { required },
+      ingredients: { required },
+      directions: { required },
+      categories: { required }
     }
   },
   // watches for any errors
@@ -202,6 +213,11 @@ input {
   margin: 8px 0;
   box-sizing: border-box;
   border: none;
-  border-bottom: 2px solid red;
+  /* border-bottom: 2px solid red; */
+}
+
+.form-feedback-error {
+  font-weight: bold;
+  color: darkred;
 }
 </style>

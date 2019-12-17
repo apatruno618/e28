@@ -7,7 +7,8 @@ import RecipesPage from './components/pages/RecipesPage.vue';
 import RecipePage from './components/pages/RecipePage.vue';
 import FavoritesPage from './components/pages/FavoritesPage.vue';
 import RecipeCreatePage from './components/pages/RecipeCreatePage.vue';
-import Vuelidate from 'vuelidate'
+import Vuelidate from 'vuelidate';
+import './filters.js';
 
 // eslint compiler looks at these comments
 // it will ignore no-unused-vars

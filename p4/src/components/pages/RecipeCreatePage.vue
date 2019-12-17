@@ -95,6 +95,15 @@ if (process.env.NODE_ENV == 'development') {
     weight: 0.44,
     perishable: false,
     categories: ['snacks', 'gluten-free']
+    // slug: 'annas-baked-ziti',
+    // name: 'Anna's Baked Ziti',
+    // level: 'easy',
+    // time: '1hr 30 min',
+    // yield: '10 servings',
+    // special_equipment: null,
+    // ingredients: ['ziti pasta', 'tomato sauce', 'mozzarella cheese'],
+    // directions: ['Make the sauce', 'Make the pasta.', 'Mix the pasta and sauce and bake.' ],
+    // categories: ['entree', 'non-vegan']
   };
 } else {
   recipe = {
@@ -105,6 +114,15 @@ if (process.env.NODE_ENV == 'development') {
     weight: '',
     perishable: false,
     categories: []
+    // slug: '',
+    // name: '',
+    // level: '',
+    // time: '',
+    // yield: '',
+    // special_equipment: null,
+    // ingredients: [],
+    // directions: [],
+    // categories: []
   };
 }
 export default {
@@ -132,9 +150,11 @@ export default {
       }
     }
   },
+  // watches for any errors
   watch: {
     //   for global errors
     '$v.$anyError': function() {
+      // toggling effect
       this.formHasErrors = this.$v.$anyError;
     }
   },

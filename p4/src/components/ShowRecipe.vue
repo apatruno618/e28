@@ -7,7 +7,7 @@
       <img
         class='recipe-thumb'
         :alt='" Recipe image of" + recipe.name'
-        :src='"./../assets/images/recipes/" + recipe.slug + ".jpg" '
+        :src='recipe.slug | recipeImage'
       />
       <div class='recipe-level'>{{ recipe.level }}</div>
       <div class='recipe-time'>{{ recipe.time }}</div>

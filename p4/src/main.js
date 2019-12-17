@@ -19,8 +19,8 @@ const _ = require('lodash')
 // makes store object available
 import store from './store';
 
-Vue.use(Vuelidate)
 Vue.use(VueRouter);
+Vue.use(Vuelidate);
 Vue.config.productionTip = false
 
 const routes = [

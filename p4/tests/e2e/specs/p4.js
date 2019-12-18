@@ -44,8 +44,32 @@ describe('TurkeyTable', () => {
   })
 
   it('creates and submits a new recipes', () => {
-    cy.visit('/create');
+    let recipe = {
+      slug: 'annas-baked-ziti',
+      name: 'Anna\'s Baked Ziti',
+      level: 'easy',
+      time: '1hr 30 min',
+      yield: '10 servings',
+      special_equipment: 'baking dish',
+      ingredients: 'ziti pasta,tomato sauce,mozzarella cheese',
+      directions:
+        'Make the sauce.Make the pasta.Mix the pasta and sauce and bake.'
+      ,
+      categories: 'entree,non-vegan'
+    }
 
+    cy.visit('/recipe/create');
+    cy.get('[data-test="recipe-slug-input"]').type(recipe.slug);
+    cy.get('[data-test="recipe-name-input"]').type(recipe.name);
+    cy.get('[data-test="recipe-level-input"]').select(recipe.level);
+    cy.get('[data-test="recipe-time-input"]').type(recipe.time);
+    cy.get('[data-test="recipe-yield-input"]').type(recipe.yield);
+    cy.get('[data-test="recipe-special-equipment-input"]').type(recipe.special_equipment);
+    cy.get('[data-test="recipe-ingredients-input"]').type(recipe.ingredients);
+    cy.get('[data-test="recipe-directions-textarea"]').type(recipe.directions);
+    cy.get('[data-test="recipe-categories-input"]').type(recipe.categories);
+    cy.get('[data-test="add-recipe-button"]').click();
+    cy.url().should('include', recipe.slug)
   })
 
 })

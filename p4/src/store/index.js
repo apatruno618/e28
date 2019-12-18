@@ -24,7 +24,7 @@ export default new Vuex.Store({
         setRecipes(state, payload) {
             state.recipes = payload;
         },
-        addRecipes(state, payload) {
+        addRecipe(state, payload) {
             _.merge(state.recipes + payload)
         }
     },

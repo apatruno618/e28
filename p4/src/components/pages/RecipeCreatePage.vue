@@ -9,7 +9,7 @@
         <label for='name'>URL</label>
         <!-- unique identifier in form of slug -->
         <!-- a slug is a simplified url-friendly version of a string -->
-        <input type='text' id='slug' v-model='$v.recipe.slug.$model' />
+        <input type='text' id='slug' data-test='recipe-slug-input' v-model='$v.recipe.slug.$model' />
         <!-- if there are any errors, this will show -->
         <div v-if='$v.recipe.slug.$error'>
           <div class='form-feedback-error' v-if='!$v.recipe.slug.required'>Recipe URL required.</div>
@@ -28,7 +28,7 @@
       <!-- recipe name -->
       <div>
         <label for='name'>Name</label>
-        <input type='text' id='name' v-model='$v.recipe.name.$model' />
+        <input type='text' id='name' data-test='recipe-name-input' v-model='$v.recipe.name.$model' />
         <div v-if='$v.recipe.name.$error'>
           <div class='form-feedback-error' v-if='!$v.recipe.name.required'>Recipe name is required.</div>
         </div>
@@ -38,7 +38,7 @@
       <div>
         <label for='level'>Level</label>
         <br />
-        <select name='level' v-model='$v.recipe.level.$model'>
+        <select name='level' data-test='recipe-level-input' v-model='$v.recipe.level.$model'>
           <option value='easy'>Easy</option>
           <option value='intermediate'>Intermediate</option>
           <option value='difficult'>Difficult</option>
@@ -54,7 +54,7 @@
       <!-- recipe time -->
       <div>
         <label for='time'>Time</label>
-        <input type='text' id='time' v-model='$v.recipe.time.$model' />
+        <input type='text' id='time' data-test='recipe-time-input' v-model='$v.recipe.time.$model' />
         <div v-if='$v.recipe.time.$error'>
           <div class='form-feedback-error' v-if='!$v.recipe.time.required'>Recipe time is required.</div>
         </div>
@@ -63,7 +63,12 @@
       <!-- recipe yield -->
       <div>
         <label for='yield'>Yield</label>
-        <input type='text' id='yield' v-model='$v.recipe.yield.$model' />
+        <input
+          type='text'
+          id='yield'
+          data-test='recipe-yield-input'
+          v-model='$v.recipe.yield.$model'
+        />
         <div v-if='$v.recipe.yield.$error'>
           <div
             class='form-feedback-error'
@@ -75,13 +80,23 @@
       <!-- recipe special equipment -->
       <div>
         <label for='special_equipment'>Special Equipment</label>
-        <input type='text' id='special-equipment' v-model='recipe.special_equipment' />
+        <input
+          type='text'
+          id='special-equipment'
+          data-test='recipe-special-equipment-input'
+          v-model='recipe.special_equipment'
+        />
       </div>
 
       <!-- recipe ingredients -->
       <div>
         <label for='ingredients'>Ingredients</label>
-        <input type='text' id='ingredients' v-model='$v.recipe.ingredients.$model' />
+        <input
+          type='text'
+          id='ingredients'
+          data-test='recipe-ingredients-input'
+          v-model='$v.recipe.ingredients.$model'
+        />
         <small id='ingredientsHelp' class='form-help'>Comma separated</small>
         <div v-if='$v.recipe.ingredients.$error'>
           <div
@@ -95,7 +110,13 @@
       <div>
         <label for='directions'>Directions</label>
         <br />
-        <textarea rows='4' cols='60' id='directions' v-model='$v.recipe.directions.$model'></textarea>
+        <textarea
+          rows='4'
+          cols='60'
+          id='directions'
+          data-test='recipe-directions-textarea'
+          v-model='$v.recipe.directions.$model'
+        ></textarea>
         <div v-if='$v.recipe.directions.$error'>
           <div
             class='form-feedback-error'
@@ -107,7 +128,12 @@
       <!-- recipe categories -->
       <div>
         <label for='categories'>Categories</label>
-        <input type='text' id='categories' v-model='$v.recipe.categories.$model' />
+        <input
+          type='text'
+          id='categories'
+          data-test='recipe-categories-input'
+          v-model='$v.recipe.categories.$model'
+        />
         <small id='categoriesHelp' class='form-help'>Comma separated</small>
         <div v-if='$v.recipe.categories.$error'>
           <div
@@ -117,7 +143,7 @@
         </div>
       </div>
 
-      <button type='submit'>Add recipe</button>
+      <button data-test='add-recipe-button' type='submit'>Add recipe</button>
       <!-- global error notification -->
       <div class='form-feedback-error' v-if='formHasErrors'>Please correct the above errors</div>
     </form>

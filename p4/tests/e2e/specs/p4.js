@@ -51,9 +51,9 @@ describe('TurkeyTable', () => {
       time: '1hr 30 min',
       yield: '10 servings',
       special_equipment: 'baking dish',
-      ingredients: 'ziti pasta,tomato sauce,mozzarella cheese',
+      ingredients: 'ziti pasta, tomato sauce, mozzarella cheese',
       directions:
-        'Make the sauce.Make the pasta.Mix the pasta and sauce and bake.'
+        'Make the sauce. Make the pasta. Mix the pasta and sauce and bake.'
       ,
       categories: 'entree,non-vegan'
     }

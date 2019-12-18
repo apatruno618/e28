@@ -117,6 +117,8 @@
           data-test='recipe-directions-textarea'
           v-model='$v.recipe.directions.$model'
         ></textarea>
+        <br />
+        <small id='directionsHelp' class='form-help'>Comma separated</small>
         <div v-if='$v.recipe.directions.$error'>
           <div
             class='form-feedback-error'
@@ -181,9 +183,9 @@ if (process.env.NODE_ENV == 'development') {
     time: '',
     yield: '',
     special_equipment: null,
-    ingredients: [],
-    directions: [],
-    categories: []
+    ingredients: '',
+    directions: '',
+    categories: ''
   };
 }
 export default {

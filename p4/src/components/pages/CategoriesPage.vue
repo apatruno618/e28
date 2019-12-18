@@ -2,7 +2,11 @@
   <div>
     <h2>Categories</h2>
     <ul>
-      <li v-for='(category, slug) in loadCategories' :key='slug'>{{ category }}</li>
+      <li
+        v-for='(category, slug) in loadCategories'
+        :key='slug'
+        data-test='recipe-categories'
+      >{{ category }}</li>
     </ul>
   </div>
 </template>

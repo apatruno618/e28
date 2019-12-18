@@ -17,14 +17,9 @@ export default class Favorites {
     }
 
     /**
-     * Returns how many total items are in the cart
+     * Returns how many total items are in favorites
      */
     count() {
-        // let sum = 0;
-        // for (let key of Object.keys(this.items)) {
-        //     sum += this.items[key].quantity;
-        // }
-        // return sum;
         let sum = this.items.length;
         return sum;
     }

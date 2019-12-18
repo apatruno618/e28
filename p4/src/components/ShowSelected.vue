@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-test='recipe-selected-category'>
     <ul v-if='recipes'>
       <li v-for='recipe in selectedCategory' :key='recipe.slug'>{{ recipe.name }}</li>
     </ul>
